@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     end
 
     def create 
-        @user = User.create(user_params(:username, :first_name, :last_name, :password_digest, :birthday, :cohort_id))
+        @user = User.create(user_params(:username, :first_name, :last_name, :password, :birthday, :cohort_id))
         if @user.valid?
-            session[:signed_in_user] = @user.id 
+            session[:signed_in_user] = @user.id
             GroupMember.create(user_id: @user.id, group_id: Group.find_by(code: @user.cohort.code).id)
             redirect_to user_path(@user)
         else
