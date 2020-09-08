@@ -1,0 +1,9 @@
+<h1><%= @post.title %></h1>
+<h3><%= @post.content %> </h3>
+
+<% @post.comments.each do |comment| %>
+<p> <%= comment.content %> </p>
+<p><%= comment.user.username %></p>
+<% end %>
+
+<%= button_to "Add Comment", new_comment_path, {method: :get} %>
