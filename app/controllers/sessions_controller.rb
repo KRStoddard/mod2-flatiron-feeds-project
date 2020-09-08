@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     def login
         @user = User.find_by(username: params[:session][:username])
         if @user && @user.authenticate(params[:session][:password])
-            session[:signed_in_user] = @user.id
+            session[:signed_in_user_id] = @user.id
+            #<>
             redirect_to user_path(@user)
         else
             flash[:error] = "Username or Password Incorrect"
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        session.delete(:signed_in_user)
+        session.delete(:signed_in_user_id)
         redirect_to users_home_path
     end
 
