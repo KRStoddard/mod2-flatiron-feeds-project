@@ -16,8 +16,12 @@ puts "Starting Seed"
 
 Group.create(name: "Cohort for 08/03/20 Software Engineering", description: "Welcome new Software Engineers!", code: "080320SE")
 Group.create(name: "Struggle Bus", description: "Help!!!")
+Group.create(name: "Cohort for 09/08/20 Computer Science", description: "New Cohort!", code: "090820CS")
 
 Cohort.create(code: "080320SE")
 Cohort.create(code: "090820CS")
+Cohort.create
+
+User.create(username: "deleted_user", password_digest: "pass123", cohort_id: Cohort.find_by(code: nil).id)
 
 puts "Complete!"

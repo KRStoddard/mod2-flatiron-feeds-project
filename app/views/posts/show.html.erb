@@ -15,3 +15,4 @@
 <% end %>
 
 <%= button_to "Add Comment", new_comment_path, {method: :get} %>
+<%= button_to "Go back to Group", group_path(flash[:group]), {method: :get} %>
