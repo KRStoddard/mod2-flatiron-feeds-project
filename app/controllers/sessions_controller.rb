@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 
     def login
         @user = User.find_by(username: params[:session][:username])
-        if @user && @user.authenticate(params[:session][:password])
+        if @user && @user.authenticate(params[:session][:password])  
+            flash[:success] = "Welcome!"
             session[:signed_in_user_id] = @user.id
-            #<>
             redirect_to user_path(@user)
         else
             flash[:error] = "Username or Password Incorrect"

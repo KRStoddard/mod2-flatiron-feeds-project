@@ -1,10 +1,16 @@
 <%= button_to "Log out", logout_path, {method: :delete} %>
 <h1> <%= @user.full_name %>'s Profile </h1> 
 
-<h3>My Groups </h3>
-<% @user.groups.each do |group| %>
-<%= group.name %>
+<% if flash[:success] %>
+<p><%= flash[:success] %></p>
 <% end %>
+
+<h3>My Groups: </h3>
+<ul>
+<% @user.groups.each do |group| %>
+    <li><%= link_to "#{group.name}", group_path(group) %></li>
+<% end %>
+</ul>
 
 <h3> Profile Posts </h3>
 <% @user.profile_posts.each do |post| %>

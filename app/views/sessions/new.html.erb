@@ -1,5 +1,9 @@
 <h1> Login </h1>
 
+<% if flash[:error] %>
+    <p><%= flash[:error] %></p>
+<% end %>
+
 <%= form_for :session, url: login_path do |f| %>
 <%= f.label :username %>
 <%= f.text_field :username %><br>
@@ -7,5 +11,5 @@
 <%= f.password_field :password %><br>
 <%= f.submit "Login" %>
 <% end %>
-
+<br><br>
 <%= button_to "Home", users_home_path, {method: :get} %>
