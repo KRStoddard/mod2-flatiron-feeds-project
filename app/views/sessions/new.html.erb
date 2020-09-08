@@ -4,8 +4,8 @@
 <%= f.label :username %>
 <%= f.text_field :username %><br>
 <%= f.label :password %>
-<%= f.text_field :password %><br>
-<%= f.submit %>
+<%= f.password_field :password %><br>
+<%= f.submit "Login" %>
 <% end %>
 
-<%= button_to redirect_to users_home_path, {method: :get} %>
+<%= button_to "Home", users_home_path, {method: :get} %>

@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :group_members
     has_many :groups, through: :group_members 
     belongs_to :cohort
+    has_secure_password
 
     def full_name
         "#{self.first_name} #{self.last_name}"
