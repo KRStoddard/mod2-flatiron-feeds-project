@@ -8,6 +8,12 @@
 <p> Comments: <%= post.comments.count %> </p>
 <% end %>
 
+<% if @group.users.find_by(id: @signed_in_user.id) %> 
 <%= button_to "Create Post", new_post_path, method: :get %>
-
+<% else %>
 <%= button_to "Join Group", group_members_path %>
+<% end %>
+<br>
+<%= button_to "Return to Group Index", groups_path, {method: :get} %>
+<br>
+<%= button_to "Return to Profile", user_path(@signed_in_user), {method: :get} %>

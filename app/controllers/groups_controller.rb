@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 
     def show
         flash[:group] = @group.id
+        @comment = Comment.new 
     end
 
     def view_members

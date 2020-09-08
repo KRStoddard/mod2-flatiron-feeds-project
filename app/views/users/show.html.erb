@@ -14,10 +14,11 @@
 
 <h3> Profile Posts </h3>
 <% @user.profile_posts.each do |post| %>
-<h3> <%= post.title %> </h3>
+<h3> <%= link_to post.title, post_path(post) %> </h3>
 <p> <%= post.content %> </p>
 <p> Comments: <%= post.comments.count %>
 <% end %>
 
 <%= button_to "Create Post", new_post_path, {method: :get} %>
 <%= button_to "View Groups", groups_path, {method: :get} %>
+<%= button_to "Delete", user_path(@user), {method: :delete, data: {confirm: true}} %>

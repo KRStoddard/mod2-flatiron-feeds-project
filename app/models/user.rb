@@ -5,6 +5,9 @@ class User < ApplicationRecord
     has_many :groups, through: :group_members 
     belongs_to :cohort
     has_secure_password
+    
+    validates :username, uniqueness: :true
+
 
     def full_name
         "#{self.first_name} #{self.last_name}"

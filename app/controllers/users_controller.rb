@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    #before_action :find_user, only: [:show]
-    #skip_before_action :authorized, only: [:new, :create, :home]
+    before_action :find_user, only: [:show, :destroy]
+    skip_before_action :authorized, only: [:new, :create, :home]
 
     def show
         @user = User.find(params[:id])
@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     def home
     end
 
+    def destroy
+        @user.group_members.each {|group_membership| group_membership.destroy}
+        @user.posts.each {|post| post.update(user_id: User.find_by(username: "deleted_user").id)}
+        @user.comments.each {|comment| comment.update(user_id: User.find_by(username: "deleted_user").id)}
+        @user.destroy 
+        redirect_to users_home_path
+    end
+
     private
 
 
@@ -37,4 +45,6 @@ class UsersController < ApplicationController
     def user_params(*args)
         params.require(:user).permit(*args)
     end
+
+    
 end
