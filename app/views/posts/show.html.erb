@@ -3,7 +3,7 @@
 
 <% @post.comments.each do |comment| %>
 <p> <%= comment.content %> </p>
-<p><%= comment.user.username %></p>
+<p><%= User.find(comment.user_id).username %></p>
 <% end %>
 
 <%= button_to "Add Comment", new_comment_path, {method: :get} %>

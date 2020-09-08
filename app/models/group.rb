@@ -4,6 +4,6 @@ class Group < ApplicationRecord
     has_many :posts
 
     def sort_memberships
-        self.group_members.sort {|membership| membership.created_at}.reverse
+        self.group_members.sort {|membership| membership.created_at}
     end
 end
