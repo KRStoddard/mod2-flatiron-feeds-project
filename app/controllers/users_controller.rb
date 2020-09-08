@@ -16,6 +16,7 @@ class UsersController < ApplicationController
         if @user.valid?
             session[:signed_in_user] = @user.id
             GroupMember.create(user_id: @user.id, group_id: Group.find_by(code: @user.cohort.code).id)
+            flash[:success] = "Welcome!"
             redirect_to user_path(@user)
         else
             flash[:errors] = @user.errors.full_messages
