@@ -1,0 +1,13 @@
+<h1> <%= @user.full_name %>'s Profile </h1> 
+
+<h3>My Groups </h3>
+<%= @user.groups.join(", ") %>
+
+<h3> Profile Posts </h3>
+<% @user.profile_posts.each do |post| %>
+<h3> <%= post.title %> </h3>
+<p> <%= post.content %> </p>
+<% end %>
+
+<%= button_to "Create Post", new_post_path, {method: :get} %>
+<%= button_to "View Groups", groups_path, {method: :get} %>

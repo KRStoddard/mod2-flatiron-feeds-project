@@ -1,0 +1,5 @@
+<h1> Welcome to <%= @group.name %>! </h1>
+<p> <%= @group.description %> </p>
+<%=link_to "View our Members", view_members_path(@group)  %>
+
+<%= button_to "Create Post", new_post_path %>

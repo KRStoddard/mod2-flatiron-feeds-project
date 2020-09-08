@@ -1,0 +1,32 @@
+<h1> Create Account </h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color: red"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :password %>
+  <%= f.text_field :password_digest %><br>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :birthday %>
+  <%= f.date_field :birthday %><br>
+
+  <%= f.label :cohort %>
+  <%= f.collection_select :cohort_id, @cohorts, :id, :code %>
+
+
+  <%= f.submit %>
+
+<% end %><br>
+
+<%= button_to "Return to Home", users_home_path, {method: :get} %>

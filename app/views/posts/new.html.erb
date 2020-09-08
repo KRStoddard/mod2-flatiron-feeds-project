@@ -1,0 +1,11 @@
+<h1> New Post </h1>
+
+<%= form_for @post do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %><br><br>
+<%= f.text_area :content %><br><br>
+<%= f.submit %>
+<% end %>
+
+<%= button_to "Group Index", groups_path, {method: :get} %>
+<%= button_to "Your Profile Page", user_path(@signed_in_user.id), {method: :get} %>
