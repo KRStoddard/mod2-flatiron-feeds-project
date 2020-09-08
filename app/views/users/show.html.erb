@@ -7,6 +7,7 @@
 <% @user.profile_posts.each do |post| %>
 <h3> <%= post.title %> </h3>
 <p> <%= post.content %> </p>
+<p> Comments: <%= post.comments.count %>
 <% end %>
 
 <%= button_to "Create Post", new_post_path, {method: :get} %>
