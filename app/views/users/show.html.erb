@@ -2,12 +2,15 @@
 <h1> <%= @user.full_name %>'s Profile </h1> 
 
 <h3>My Groups </h3>
-<%= @user.groups.join(", ") %>
+<% @user.groups.each do |group| %>
+<%= group.name %>
+<% end %>
 
 <h3> Profile Posts </h3>
 <% @user.profile_posts.each do |post| %>
 <h3> <%= post.title %> </h3>
 <p> <%= post.content %> </p>
+<p> Comments: <%= post.comments.count %>
 <% end %>
 
 <%= button_to "Create Post", new_post_path, {method: :get} %>

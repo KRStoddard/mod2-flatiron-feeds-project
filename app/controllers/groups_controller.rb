@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
     end
 
     def show
+        flash[:group] = @group.id
     end
 
     def view_members
