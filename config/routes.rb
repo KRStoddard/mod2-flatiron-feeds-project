@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/sessions/new', to: 'sessions#new', as: 'new_login'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   delete '/sessions/delete', to: 'sessions#logout', as: 'logout'
+  patch '/posts/:id/like', to: 'posts#like', as: 'like'
+  patch '/comments/:id/like', to: 'comments#like', as: 'like_comment'
 end

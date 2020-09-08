@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:show]
+    before_action :find_post, only: [:show, :like]
    
     def show
         flash[:post] = @post.id 
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     def create
         @post = Post.create(post_params(:title, :content)) 
         if @post.valid?
-            @post.update(user_id: @signed_in_user.id)
+            @post.update(user_id: @signed_in_user.id, likes: 0)
             if flash[:group]
                 @post.update(group_id: flash[:group])
             end
@@ -34,6 +34,13 @@ class PostsController < ApplicationController
             end
             redirect_to new_post_path
         end
+    end
+
+    def like
+        @post.likes += 1
+        @post.save
+
+        redirect_to post_path(@post)
     end
 
     private
