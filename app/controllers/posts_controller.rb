@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:show]
+    before_action :find_post, only: [:show, :edit, :update, :destroy]
    
     def show
         flash[:post] = @post.id 
@@ -34,6 +34,19 @@ class PostsController < ApplicationController
             end
             redirect_to new_post_path
         end
+    end
+
+    def edit 
+    end
+
+    def update
+        @post.update(post_params(:title, :content))
+        redirect_to post_path(@post)
+    end
+
+    def destroy
+        @post.destroy 
+        redirect_to user_path(@signed_in_user.id)
     end
 
     private
