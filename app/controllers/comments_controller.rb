@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+    before_action :find_comment, only: [:like, :edit, :update, :destroy]
     def new
         @comment = Comment.new
         flash[:post] = flash[:post]
@@ -27,8 +27,21 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy
+        @comment.destroy 
+        redirect_to user_path(@signed_in_user.id)
+    end
+
+    def edit
+    end
+
+    def update
+        @comment.update(comment_params(:content))
+        redirect_to post_path(Post.find(@comment.post_id))
+    end
+
+
     def like
-        @comment = Comment.find(params[:id])
         @comment.likes += 1
         @comment.save
 
@@ -36,6 +49,10 @@ class CommentsController < ApplicationController
     end
 
     private
+
+    def find_comment
+        @comment = Comment.find(params[:id])
+    end
 
     def comment_params(*args)
         params.require(:comment).permit(*args)

@@ -5,11 +5,14 @@
 <% @group.posts.each do |post| %>
 <h3> <%= link_to post.title, post_path(post) %> </h3>
 <p> <%= post.content %> </p>
+<% if @group.users.find_by(id: @signed_in_user.id) %>
 <p> Comments: <%= post.comments.count %> </p>
+<% end %>
 <% end %>
 
 <% if @group.users.find_by(id: @signed_in_user.id) %> 
 <%= button_to "Create Post", new_post_path, method: :get %>
+<%= button_to "Leave Group", group_member_path(GroupMember.find_by(group_id: @group.id, user_id: @signed_in_user.id)), {method: :delete} %>
 <% else %>
 <%= button_to "Join Group", group_members_path %>
 <% end %>
