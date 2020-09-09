@@ -1,3 +1,91 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+nav {
+    border: 1px black;
+    padding: 10px;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    font-size: 20px;   
+}
+
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+    
+}
+
+.flash {
+    text-align: center;
+    font-size: 30px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 35px;
+    padding-top: 35px;
+}
+
+
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    scroll-behavior: auto;
+}
+
+.box {
+    border: 2px black;
+    border-style: solid;
+    height: 500px;
+    overflow: scroll;
+    scroll-behavior: auto;
+}
+
+aside {
+    flex: 1;
+    min-height: 500px;
+    text-align: center;
+    max-height: 500px;
+    margin-top: 11px;
+ 
+}
+
+aside .box {
+    padding-right: 32px;
+    
+}
+
+.posts {
+    flex: 3; 
+    display: flex;
+    flex-flow: column; 
+    justify-content: space-between; 
+    text-align: center;
+    margin: 10px;
+    
+    
+}
+
+.post {
+    flex: 1 100px;
+    border: 1px black;
+    border-style: solid;
+    margin: 25px 60px 25px 60px;
+
+}
+
+aside li {
+    padding: 20px;
+    list-style: none;
+}
+
+.button {
+    float: right;
+    margin: 10px;
+}
+

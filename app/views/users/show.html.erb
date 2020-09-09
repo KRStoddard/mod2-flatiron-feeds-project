@@ -1,26 +1,54 @@
-<%= button_to "Log out", logout_path, {method: :delete} %>
-<h1> <%= @user.full_name %>'s Profile </h1> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>FlatIron Feeds</title>
+  </head>
+<h1> Flatiron Feeds </h1>
+<nav>
+ <p><%= link_to "My Profile", user_path(@signed_in_user.id) %></p>
+ <p><%= link_to "Groups", groups_path %></p>
+ <p><%= link_to "Log out", logout_path, method: :delete %></p>
+ </nav>
 
+<div class="flash">
 <% if flash[:success] %>
 <p><%= flash[:success] %></p>
 <% end %>
+</div>
+<h2> <%= @user.full_name %>'s Profile </h2> 
 
+
+<section>
+<aside>
 <h3>My Groups: </h3>
+<div class="box">
 <ul>
 <% @user.groups.each do |group| %>
     <li><%= link_to "#{group.name}", group_path(group) %></li>
 <% end %>
 </ul>
+</aside>
 
+<div class="posts">
 <h3> Profile Posts </h3>
-<% @user.profile_posts.each do |post| %>
+
+<div class="box">
+<% @user.profile_posts.reverse.each do |post| %>
+<div class="post">
 <h3> <%= link_to post.title, post_path(post) %> </h3>
 <p> <%= post.content %> </p>
-<p> Comments: <%= post.comments.count %>
-<% end %>
-
-<%= button_to "View Groups", groups_path, {method: :get} %>
+<p> <%= link_to "Comments: #{post.comments.count}", post_path(post) %>
 <% if @user.id == @signed_in_user.id %>
-<%= button_to "Create Post", new_post_path, {method: :get} %>
 <%= button_to "Delete", user_path(@user), {method: :delete, data: {confirm: true}} %>
 <% end %>
+</div>
+<% end %>
+</div>
+</section>
+<div class="button">
+<% if @user.id == @signed_in_user.id %>
+<%= button_to "Create Post", new_post_path, {method: :get} %>
+<% end %>
+</div>
+</html>
