@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:show, :edit, :update, :destroy]
+    before_action :find_post, only: [:show, :like, :edit, :update, :destroy]
+
    
     def show
         flash[:post] = @post.id 
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
     def create
         @post = Post.create(post_params(:title, :content)) 
         if @post.valid?
-            @post.update(user_id: @signed_in_user.id)
+            @post.update(user_id: @signed_in_user.id, likes: 0)
             if flash[:group]
                 @post.update(group_id: flash[:group])
             end
@@ -36,6 +37,7 @@ class PostsController < ApplicationController
         end
     end
 
+
     def edit 
     end
 
@@ -47,6 +49,13 @@ class PostsController < ApplicationController
     def destroy
         @post.destroy 
         redirect_to user_path(@signed_in_user.id)
+    end
+
+    def like
+        @post.likes += 1
+        @post.save
+
+        redirect_to post_path(@post)
     end
 
     private

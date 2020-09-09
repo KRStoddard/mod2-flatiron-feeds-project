@@ -1,9 +1,17 @@
 <h1><%= @post.title %></h1>
 <h3><%= @post.content %> </h3>
+<%= button_to "Like Post", like_path(@post), method: :patch %>
+<p><%= "Total likes: #{@post.likes}" %></p>
 
+
+<h4>Comments: </h4>
 <% @post.comments.each do |comment| %>
+  <% @comment = comment %>
 <p> <%= comment.content %> </p>
-<p><%= User.find(comment.user_id).username %></p>
+<p><%= "User: #{User.find(comment.user_id).username}" %></p>
+<button><%= link_to "Like Comment", like_comment_path(@comment), method: :patch %></button>
+
+<%= "Total likes: #{@comment.likes}" %>
 <% end %>
 
 <%= button_to "Add Comment", new_comment_path, {method: :get} %>
