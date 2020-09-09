@@ -16,3 +16,7 @@
 
 <%= button_to "Add Comment", new_comment_path, {method: :get} %>
 <%= button_to "Go back to Group", group_path(flash[:group]), {method: :get} %>
+<% if @post.user_id == @signed_in_user.id %>
+<%= button_to "Delete post", post_path(@post), {method: :delete} %>
+<%= button_to "Edit Post", edit_post_path(@post), {method: :get} %>
+<% end %>
