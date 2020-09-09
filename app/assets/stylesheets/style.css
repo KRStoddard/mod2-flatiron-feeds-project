@@ -1,0 +1,174 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.homepage{
+    background: black;
+}
+
+.login-main{
+    font-family: sans-serif;
+    background: linear-gradient(120deg, lightblue, #2980b9);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.create-account{
+    font-family: sans-serif;
+    background: linear-gradient(120deg, lightblue, #2980b9);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main
+{
+    position: absolute;
+    width: 1200px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    text-align: center; 
+    /* border: 1px solid lightblue;  */
+    height: 100%; 
+    width: 100%; 
+    vertical-align: middle;
+}
+
+.title
+{
+    color: white;
+    text-transform: uppercase;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 200px;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "Roboto", sans-serif;
+}
+
+.button
+{
+    margin-top: 40px;
+    margin-left: 25px;
+}
+
+.btn 
+{
+    border: 1px solid white;
+    padding: 10px 30px;
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.btn-one
+{
+    background-color: lightblue; 
+    font-family: "Roboto", sans-serif;
+}
+
+.btn-two
+{
+    font-family: "Roboto", sans-serif;
+}
+
+.btn-two:hover
+{
+    background-color: lightblue;
+    transition: all 0.5s ease-in;
+}
+
+.login-box
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    padding: 30px;
+    background: rgba(0,0,0,0.8);
+    border-radius: 5px;
+}
+
+.login-box h1
+{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 3px groove #68cdf5;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.textfield{
+    border: 0;
+    background: none;
+    display: block;
+    margin: auto;
+    text-align: center;
+    border: 2px solid #68cdf5;
+    padding: 12px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    transition: 0.25s;
+}
+
+.login-button{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 160px;
+}
+
+.signup-button{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 120px;
+}
+
+.textfield:focus{
+    width: 280px;
+}
+
+.create-account-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 380px;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 30px;
+    padding-bottom: 20px;
+}
+
+.create-account-box h1{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 3px groove #68cdf5;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.textfield1{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted #fff;
+    color: rgb(131, 130, 130);
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}

@@ -1,4 +1,21 @@
-<h1> Flatiron Feeds </h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Flatiron Feeds </title>
+        <%= stylesheet_link_tag "style.css" %>
+    </head>
+    <body class="homepage">
 
-<%= button_to "Sign In", new_login_path, {method: :get} %>
-<%= button_to "Create Account", new_user_path, {method: :get} %>
+    <div class="main">
+    <h1 class="title"> Flatiron Feeds </h1>
+
+        <div class="button">
+            <a href="/sessions/new" class="btn btn-one"> Sign In</a>
+            <a href="/users/new" class="btn btn-two"> Create Account</a>
+        </div>
+
+    </div>
+
+    </body>
+</html>
