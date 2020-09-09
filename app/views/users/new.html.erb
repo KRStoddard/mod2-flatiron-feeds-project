@@ -1,32 +1,41 @@
-<h1> Create Account </h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Create Account </title>
+        <%= stylesheet_link_tag "style.css" %>
+    </head>
+    <body class="create-account">
+
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
     <p style="color: red"><%= error %></p>
   <% end %>
 <% end %>
 
+<div class="create-account-box">
+<h1> Create Account </h1>
+
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+ <%= f.text_field :first_name, placeholder: "First Name", class:"textfield1" %><br>
+  
+ <%= f.text_field :last_name, placeholder: "Last Name", class:"textfield1" %><br>
+ 
+ <%= f.date_field :birthday, placeholder: "Birthday", class:"textfield1" %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+ <%= f.text_field :username, placeholder: "Username", class:"textfield1" %><br>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br>
-
-  <%= f.label :birthday %>
-  <%= f.date_field :birthday %><br>
-
-  <%= f.label :cohort %>
-  <%= f.collection_select :cohort_id, @cohorts, :id, :code %>
-
-
-  <%= f.submit %>
+ <%= f.password_field :password, placeholder: "Password", class:"textfield1" %><br>
+  <br>
+ 
+  <%= f.collection_select :cohort_id, @cohorts, :id, :code, prompt: "Select Cohort", class:"dropdown" %>
+  </h5><br>
+  <%= f.submit "Sign Up", class:"signup-button" %>
 
 <% end %><br>
+</div>
 
 <%= button_to "Return to Home", users_home_path, {method: :get} %>
+
+</body>
+</html>

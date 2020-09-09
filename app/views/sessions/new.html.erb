@@ -1,15 +1,29 @@
-<h1> Login </h1>
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Login Form </title>
+        <%= stylesheet_link_tag "style.css" %>
+    </head>
+    <body class="login-main">
+       
 <% if flash[:error] %>
     <p><%= flash[:error] %></p>
 <% end %>
 
+<div class="login-box">
+<h1> Login </h1>
+
 <%= form_for :session, url: login_path do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %><br>
-<%= f.label :password %>
-<%= f.password_field :password %><br>
-<%= f.submit "Login" %>
+<%= f.text_field :username, placeholder: "Username", class:"textfield" %><br>
+<%= f.password_field :password, placeholder: "Password", class:"textfield" %>
+<%= f.submit "Login", class:"login-button" %>
 <% end %>
-<br><br>
+
+</div>
+
+#maybe we can have the logo on the top and we can replace this home button
 <%= button_to "Home", users_home_path, {method: :get} %>
+
+</body>
+</html>
