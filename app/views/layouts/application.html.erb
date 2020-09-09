@@ -9,14 +9,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<nav>
+
+ 
+
+  <body>
+  <nav>
+  <% if @signed_in_user %>
  <p><%= link_to "My Profile", user_path(@signed_in_user.id) %></p>
  <p><%= link_to "Groups", groups_path %></p>
  <p><%= link_to "Log out", logout_path, method: :delete %></p>
  </nav>
- 
-<h1> Flatiron Feeds </h1>
-  <body>
+ <% end %>
     <%= yield %>
   </body>
 </html>
