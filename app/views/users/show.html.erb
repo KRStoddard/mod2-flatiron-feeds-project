@@ -4,9 +4,6 @@
 <p><%= flash[:success] %></p>
 <% end %>
 </div>
-<% if @user.id == @signed_in_user.id %>
-<div class="button"> <%= button_to "Delete Account", user_path(@user), {method: :delete, data: {confirm: true}} %></div>
-<% end %>
 <h2> <%= @user.full_name %>'s Profile </h2> 
 
 
@@ -23,7 +20,7 @@
 
 <div class="posts">
 <h3> Profile Posts </h3>
-<div class="button1">
+<div class="button2">
 <% if @user.id == @signed_in_user.id %>
 <%= button_to "Create Post", new_post_path, {method: :get} %>
 <% end %>
@@ -38,5 +35,10 @@
 <% end %>
 </div>
 </section>
+<% if @user.id == @signed_in_user.id %>
+<div class="button1"> <%= button_to "Delete Account", user_path(@user), {method: :delete, data: {confirm: true}} %></div>
+<% end %>
+
+
 
 
