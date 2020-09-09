@@ -1,3 +1,49 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.section {
+    display: flex;
+}
+
+.post_box {
+    flex: 1;
+    border: 2px #19B3D9;
+    border-style: solid;
+    text-align: center;
+}
+.post_box h2 {
+    text-decoration: underline;
+}
+
+h4 {
+    text-align: center;
+}
+
+.button {
+    float: right;
+
+}
+
+.comments {
+    display: grid;
+    grid-template-columns: 600px;
+    align-items: center;
+    justify-content: space-around;
+    overflow: scroll;
+    scroll-behavior: auto;
+}
+
+.comment {
+    border: 1px black;
+    border-style: solid;
+    max-width: 600px;
+    text-align: center;
+
+}
+
+.button1 {
+    padding-left: 875px;
+    margin-bottom: 10px;
+}

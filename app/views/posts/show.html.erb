@@ -1,27 +1,52 @@
-<h1><%= @post.title %></h1>
-<h3><%= @post.content %> </h3>
 
-<%= button_to "Like Post", like_path(@post), method: :patch %>
+
+
+<section class="post">
+<div class="post_box">
+<h2><%= @post.title %></h2>
+<p><%= @post.content %> </p>
 <p><%= "Total likes: #{@post.likes}" %></p>
+<% if @post.user_id == @signed_in_user.id %>
+<div class="button"><%= button_to "Delete post", post_path(@post), {method: :delete} %> </div>
+<div class="button"> <%= button_to "Edit Post", edit_post_path(@post), {method: :get} %></div>
+<div class="button">
+<%= button_to "Like Post", like_path(@post), method: :patch %>
+</div>
+<% end %>
+</div>
+</section>
 
 
-<h4>Comments: </h4>
+
+
+<div class="button_align">
+<h4>Comments: </h4>  
+<div class="button1"> <%= button_to "Add Comment", new_comment_path, {method: :get} %> </div>
+
+<div class="comments">
 <% @post.comments.each do |comment| %>
+<div class="comment">
   <% @comment = comment %>
 <p> <%= comment.content %> </p>
-<p> User: <%= link_to User.find(comment.user_id).username, user_path(User.find(comment.user_id)) %></p>
-<button><%= link_to "Like Comment", like_comment_path(@comment), method: :patch %></button>
-
-<%= "Total likes: #{@comment.likes}" %>
+<p>  User: <%= link_to User.find(comment.user_id).username, user_path(User.find(comment.user_id)) %></p>
+<p> <%= "Total likes: #{@comment.likes}" %> </p>
+<button><%= link_to "Like Comment", like_comment_path(@comment), method: :patch %></button><br>
 <% if @comment.user_id == @signed_in_user.id %>
-<%= button_to "Delete Comment", comment_path(@comment), {method: :delete} %>
-<%= button_to "Edit Comment", edit_comment_path(@comment), {method: :get} %>
+<div class="button"> <%= button_to "Delete Comment", comment_path(@comment), {method: :delete} %></div>
+<div class="button"><%= button_to "Edit Comment", edit_comment_path(@comment), {method: :get} %></div>
 <% end %>
+</div>
 <% end %>
 
-<%= button_to "Add Comment", new_comment_path, {method: :get} %>
-<%= button_to "Go back to Group", group_path(flash[:group]), {method: :get} %>
-<% if @post.user_id == @signed_in_user.id %>
-<%= button_to "Delete post", post_path(@post), {method: :delete} %>
-<%= button_to "Edit Post", edit_post_path(@post), {method: :get} %>
-<% end %>
+</div>
+
+
+ 
+
+
+<div class="button"> <p> <%= button_to "Go back to Group", group_path(Group.find_by(@post.group_id)), {method: :get} %> </p></div>
+
+
+</body>
+
+

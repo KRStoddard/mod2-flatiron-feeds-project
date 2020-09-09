@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+
+ body {
+     margin: 45px;
+     background: linear-gradient(120deg, lightblue, #2980b9);
+     
+ }
+
+ nav {
+    border: 1px black;
+    padding: 10px;
+    padding-bottom: 0px;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+
+h1 {
+    background-image: url("b07d0f-FS_Circle_Slashes.png");
+    background-position: center;
+     background-repeat: no-repeat;
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+    
+    
+}
+
+nav p a {
+    color: white;
+}
+nav p a:visited {
+    color: white;
+}
