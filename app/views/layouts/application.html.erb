@@ -7,19 +7,27 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
 
-
- 
-
   <body>
-  <nav>
   <% if @signed_in_user %>
- <p><%= link_to "My Profile", user_path(@signed_in_user.id) %></p>
- <p><%= link_to "Groups", groups_path %></p>
- <p><%= link_to "Log out", logout_path, method: :delete %></p>
- </nav>
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+    </label>
+    <label class="logo"> <%= link_to image_tag("https://www.digital.nyc/sites/default/files/company/logo/b07d0f-FS_Circle_Slashes.png", height: '50px', width: '50px', id: "signed-in-logo"), '/sessions/delete', {method: :delete} %>
+    </label>
+    <ul>
+      <li><%= link_to "My Profile", user_path(@signed_in_user.id) %></li>
+      <li><%= link_to "Groups", groups_path %></li>
+      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+    </ul>
+  </nav>
+  <% else %>
+  <%= link_to image_tag("https://www.digital.nyc/sites/default/files/company/logo/b07d0f-FS_Circle_Slashes.png", height: '50px', width: '50px', id: "homepage-logo"), '/sessions/delete', {method: :delete} %>
  <% end %>
-    <%= yield %>
+<%= yield %>
   </body>
 </html>

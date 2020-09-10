@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :destroy]
+    before_action :going_home, only: [:home]
     skip_before_action :authorized, only: [:new, :create, :home]
 
     def show
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
     end
 
     def home
+       
     end
 
     def destroy
@@ -37,6 +39,11 @@ class UsersController < ApplicationController
 
     private
 
+    def going_home
+        if @signed_in_user
+            session.delete(:signed_in_user_id)
+        end
+    end
 
     def find_user
         @user = User.find(params[:id])

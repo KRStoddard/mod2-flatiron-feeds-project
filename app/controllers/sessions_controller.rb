@@ -17,7 +17,9 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        session.delete(:signed_in_user_id)
+        if @signed_in_user
+            session.delete(:signed_in_user_id)
+        end
         redirect_to users_home_path
     end
 
