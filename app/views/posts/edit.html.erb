@@ -1,11 +1,12 @@
-<h1> Edit Your Post </h1>
+<body class="create-account">
+<div class="new-post-box">
+    <h1> Edit Post </h1>
 
-<%= form_for @post do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %><br><br>
-<%= f.text_area :content %><br><br>
-<%= f.submit %>
-<% end %>
+    <%= form_for @post do |f| %>
+    <%= f.text_field :title, placeholder: "Title", class:"textfield2" %><br><br>
+    <%= f.text_area :content, placeholder: "Write Your Post", class:"textarea1"%><br><br>
+    <%= f.submit "Edit Post", class:"submit-button" %>
+    <% end %>
 
-<%= button_to "Group Index", groups_path, {method: :get} %>
-<%= button_to "Your Profile Page", user_path(@signed_in_user.id), {method: :get} %>
+</div>
+</body>

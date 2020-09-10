@@ -1,4 +1,4 @@
-
+<body>
 <% if flash[:success] %>
 <div class="flash-message"><%= flash[:success] %></div>
 <% end %>
@@ -21,7 +21,7 @@
     <div class="main-bd">
         <div class="left-side">
             <div class="profile-side">
-                <p class="birthday"><i class="fas fa-birthday-cake"></i><%= @user.birthday %></p>
+                <p class="birthday"><i class="fas fa-birthday-cake"></i><%= @user.birthday.strftime("%B %d, %Y")  %></p>
                 <div class="profile-btn">
                     <button class="chatbtn">
                         <i class="fa fa-comment"></i> Chat
@@ -46,13 +46,10 @@
                 <div class="tab">
                  <input type="radio" id="tab-1" name="tab-group-1" checked>
                  <label for="tab-1">Your Groups</label>
-     
                     <div class="content">
-                         <ul>
-                              <% @user.groups.each do |group| %>
-                              <li><%= link_to "#{group.name}", group_path(group) %></li>
-                              <% end %>
-                         </ul>
+                              <% @user.groups.each do |group| %>    
+                                    <h3 class="groups"> <%= link_to "#{group.name}", group_path(group) %></h3>
+                                    <% end %>
                     </div> 
                 </div>
 
@@ -62,10 +59,8 @@
          
                     <div class="content">
                             <% @user.profile_posts.reverse.each do |post| %>
-                            <h3> <%= link_to post.title, post_path(post) %> </h3>
-                            <p> <%= post.content %> </p>
-                             <p> <%= link_to "Comments: #{post.comments.count}", post_path(post) %> </p>
-                            <% end %>
+                            <h3 class="profile-post-title"> <%= link_to post.title, post_path(post) %> </h3>
+                                 <% end %>
                      </div> 
                  </div>
             </div>
@@ -74,3 +69,4 @@
 
 
 
+</body>

@@ -170,22 +170,27 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
 
 .profile-nav-bar {
     position: relative;   
-    min-height: 200px; /* This part sucks */
+    height: 200px; /* This part sucks */
     clear: both;
-    margin: 25px 0;
-    width: 250%;
+    margin: 20px 0;
+    width: 150%;
     margin-left: 20px;
+    overflow: scroll;
+    border-radius: 5px;
   }
   .tab {
     float: left;
   }
   .tab label {
     background: #eee; 
-    padding: 10px; 
+    padding: 10px;
     border: 1px solid #ccc; 
     margin-left: -1px; 
     position: relative;
     left: 1px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
   }
   .tab [type=radio] {
     display: none;   
@@ -198,9 +203,25 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     background: white;
     right: 0;
     bottom: 0;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #ccc; 
     width: 100%;
+  }
+  .groups {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 10px;
+      font-size: .9rem;
+      border: 1px groove lightblue;
+      margin: 10px;
+  }
+  .profile-post-title{
+    font-family: sans-serif;
+    text-align: left;
+    padding: 10px;
+    font-size: .9rem;
+    border: 1px groove lightblue;
+    margin: 10px;
   }
   [type=radio]:checked ~ label {
     background: white;
@@ -258,6 +279,16 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
         padding: 20px;
         margin: 5px 0;
     }
+    .content {
+        top: 28px;
+        left: 0;
+        display: flex;
+        right: 0;
+        bottom: 0;
+        padding: 15px;
+        width: 80%;
+    }
+
     @media(max-width: 400px){
         container{
             margin: 0;
