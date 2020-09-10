@@ -1,0 +1,14 @@
+<h2> Comment Thread </h2>
+<h3> <%= @comment.content %></h3>
+<p>Author: <%= @comment.user.username%> </p>
+<h3> Replies </h3>
+<% @comment.replies.each do |reply| %>
+<h4><%=reply.content%></h4>
+<p><%= reply.user.username %></p>
+<p>Likes: <%= reply.likes%>
+<% if reply.user == @signed_in_user%>
+<%= button_to "Delete Reply", reply_path(reply), {method: :delete} %>
+<% end %>
+<% end %>
+
+<%= button_to "Reply", new_reply_path, {method: :get} %>

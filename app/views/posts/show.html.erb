@@ -33,10 +33,11 @@
     <div class="comments">
     <h4 class="comment-label">Comments: </h4>  
        <% @post.comments.each do |comment| %>
-        <p class="comment-user"><%= link_to "#{User.find(comment.user_id).username}", user_path(User.find(comment.user_id)) %>:</p>
+        <p class="comment-user"><%= link_to "#{comment.user.username}", user_path(comment.user) %>:</p>
         <div class="ind-comment">
            <% @comment = comment %>
             <%= comment.content %>
+            <p> Replies: <%= link_to comment.replies.count, comment_path(comment), {method: :get} %>
         </div>
          
          <div class="button-position"> 

@@ -1,0 +1,14 @@
+<body class="create-account">
+<div class="new-post-box">
+    <h1> Reply to Thread </h1>
+
+<%#if you were adding a post to a group page, you can return to that group%>
+<% if flash[:group] %>
+<%= button_to "Return to Comment Thread", comment_path(flash[:comment]), {method: :get} %>
+<% end %>
+    <%= form_for @reply do |f| %>
+    <%= f.text_area :content, placeholder: "Write Your Reply", class:"textarea1"%><br><br>
+    <%= f.submit "Reply", class:"submit-button" %>
+    <% end %>
+</div>
+</body>

@@ -12,9 +12,9 @@ class PostsController < ApplicationController
     end
     #creates post if valid or redirects user back to the new form
     def create
-        @post = Post.create(post_params(:title, :content)) 
+        @post = Post.create(user_id: @signed_in_user.id, likes: 0)
+        @post.update(post_params(:title, :content)) 
         if @post.valid?
-            @post.update(user_id: @signed_in_user.id, likes: 0)
             if flash[:group]
                 @post.update(group_id: flash[:group])
             end

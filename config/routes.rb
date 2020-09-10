@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :replies
   resources :group_members, only: [:create, :destroy]
   resources :comments, except: [:index]
   resources :posts, except: [:index]

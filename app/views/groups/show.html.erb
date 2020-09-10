@@ -9,7 +9,7 @@
 <% @group.posts.reverse.each do |post| %>
 <h3> <%= link_to post.title, post_path(post) %> </h3>
 <p> <%= post.content %> </p>
-<p> Author: <%= User.find_by(id: post.user_id).username  %>
+<p> Author: <%= post.user.username  %>
 <% if @group.users.find_by(id: @signed_in_user.id) %>
 <p> Comments: <%= post.comments.count %> </p>
 <% end %>
