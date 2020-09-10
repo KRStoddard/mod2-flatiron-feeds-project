@@ -1,22 +1,24 @@
+<%#Lists Group's name and description%>
 <h2> Welcome to <%= @group.name %>! </h2>
 <p> <%= @group.description %> </p>
+<%#since Javascript isn't allowed, we opted to have a new page to list group members%>
 <%=link_to "View our Members", view_members_path(@group)  %>
-
-<% @group.posts.each do |post| %>
+<%#shows each post made to the group starting with most recent%>
+<%#links to show page for group to view all the comments%>
+<%#includes content, author, and total likes for post%>
+<% @group.posts.reverse.each do |post| %>
 <h3> <%= link_to post.title, post_path(post) %> </h3>
 <p> <%= post.content %> </p>
+<p> Author: <%= User.find_by(id: post.user_id).username  %>
 <% if @group.users.find_by(id: @signed_in_user.id) %>
 <p> Comments: <%= post.comments.count %> </p>
 <% end %>
 <% end %>
-
+<%#if the user is a part of the group, this allows them to create posts or leave the group%>
 <% if @group.users.find_by(id: @signed_in_user.id) %> 
 <%= button_to "Create Post", new_post_path, method: :get %>
 <%= button_to "Leave Group", group_member_path(GroupMember.find_by(group_id: @group.id, user_id: @signed_in_user.id)), {method: :delete} %>
 <% else %>
+<%#if user is not a part of the group, they can join it%>
 <%= button_to "Join Group", group_members_path %>
 <% end %>
-<br>
-<%= button_to "Return to Group Index", groups_path, {method: :get} %>
-<br>
-<%= button_to "Return to Profile", user_path(@signed_in_user), {method: :get} %>

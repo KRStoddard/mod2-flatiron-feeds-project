@@ -11,6 +11,7 @@
   </head>
 
   <body>
+  <%#if the user is signed in, shows full nav bar%>
   <% if @signed_in_user %>
   <nav>
     <input type="checkbox" id="check">
@@ -26,6 +27,7 @@
     </ul>
   </nav>
   <% else %>
+  <%#if user is not signed in, nav bar shows only link to return to homepage%>
   <%= link_to image_tag("https://www.digital.nyc/sites/default/files/company/logo/b07d0f-FS_Circle_Slashes.png", height: '50px', width: '50px', id: "homepage-logo"), '/sessions/delete', {method: :delete} %>
  <% end %>
 <%= yield %>

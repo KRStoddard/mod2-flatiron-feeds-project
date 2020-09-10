@@ -1,7 +1,3 @@
-<h1> Edit Comment </h1>
+<h2> Edit Comment </h2>
 
-<%= form_for @comment do |f| %>
-<%= f.label :content %>
-<%= f.text_area :content %><br><br>
-<%= f.submit %>
-<% end %>
+<%= render 'form' %>

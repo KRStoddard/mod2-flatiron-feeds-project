@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :group_members
-  resources :comments
-  resources :posts
-  resources :groups
+  resources :group_members, only: [:create, :destroy]
+  resources :comments, except: [:index]
+  resources :posts, except: [:index]
+  resources :groups, except: [:edit, :update]
   get '/groups/:id/members', to: 'groups#view_members', as: 'view_members'
-  resources :users, except: [:index]
+  resources :users, except: [:index, :udpate, :edit]
   get '/homepage', to: 'users#home', as: 'users_home'
   #get '/users/:id', to: 'users#show', as: 'user'
   post '/login', to: 'sessions#login', as: 'login'
