@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     before_action :signed_in_user, :authorized 
-
+    
+    
+    
     #finds the user assigned to session
     def signed_in_user
         @signed_in_user = User.find_by(id: session[:signed_in_user_id])

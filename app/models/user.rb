@@ -9,6 +9,7 @@ class User < ApplicationRecord
     has_many :messages
     has_many :replies
     has_secure_password
+    has_one_attached :image 
     #checks to make sure username is unique and that the user belongs to a cohort
     validates :username, uniqueness: :true
     validates :cohort_id, presence: true
