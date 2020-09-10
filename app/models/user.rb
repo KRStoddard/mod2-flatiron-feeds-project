@@ -4,6 +4,9 @@ class User < ApplicationRecord
     has_many :group_members
     has_many :groups, through: :group_members 
     belongs_to :cohort
+    has_many :chatmembers
+    has_many :chats, through: :chatmembers 
+    has_many :messages
     has_many :replies
     has_secure_password
     #checks to make sure username is unique and that the user belongs to a cohort
