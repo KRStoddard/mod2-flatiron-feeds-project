@@ -14,6 +14,6 @@ class User < ApplicationRecord
     end
 
     def profile_posts
-        self.posts.select {|post| post.group_id == nil}
+        self.posts.each {|post| post.group_id == nil}
     end
 end
