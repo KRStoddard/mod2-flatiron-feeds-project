@@ -3,3 +3,75 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+.list-style{
+    list-style: none;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+h2{
+   position: fixed;
+   left: 2.4cm;
+   top: 5cm;
+   font-size: 32px;
+   color: black;
+
+}
+
+.group-name{
+    font-size: 20px;
+    
+}
+
+.description{
+    position: relative;
+    left: 35px;
+}
+
+a{
+  text-decoration: underline;  
+}
+.center{
+    padding-left: 250px;
+    margin-top: 100px;
+    margin-right: 200px;
+}
+
+.list-box {
+    background: rgba(255, 255, 255, 0.5) ;
+    display: flex;
+    height: 150px;
+    position: fixed;
+    left: 2cm;
+    top: 3.5cm;
+    right: 2cm;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+}
+
+.group-listing{
+    float: left;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+}
+
+.group-display{
+    background: white ;
+     display: list-item;
+     height: 150px;
+     position: fixed;
+     left: 2cm;
+     top: 282px;
+     right: 2.8cm;
+     box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+     z-index: -1;
+}
+
+.create{
+    position: absolute;
+    position: fixed;
+    left: 1000px;
+    bottom: 291px;
+}
+
+

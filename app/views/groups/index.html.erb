@@ -1,13 +1,25 @@
-<h2> List of all of Flatiron Groups </h2>
-<%#button allows user to create a new group%>
+                
+<div class="center">
+
+    <div class="list-box">
+            <h2> List of all of Flatiron Groups </h2>
+    </div>
+
+
+    <div class="group-display">
+        <% @groups.all.each do |group|%>
+                <ul>
+                    <li class="list-style"> 
+                            <%= link_to group.name, group_path(group), :class =>"group-name" %> 
+                        <li class="description">
+                            <%= group.description %> 
+                        </li>
+                    </li> 
+         <br>  </ul>
+        <% end %> 
+    </div>
+
+</div>
+<div class="create">
 <%= button_to "Create a New Group", new_group_path, {method: :get} %>
-<%#lists and links to each group and its description%>
-<% @groups.all.each do |group|%>
-<ul>
-    <li> <%= link_to group.name, group_path(group) %>
-    <ul>
-        <li style="list-style: none"><%= group.description  %> </li>
-    </ul>
-    </li>
-    </ul>
-<% end %> 
+</div>
