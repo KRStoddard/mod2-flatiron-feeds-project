@@ -1,7 +1,8 @@
 <body class="create-account">
 <div class="new-post-box">
     <h1> Edit Post </h1>
-
+<%#button allows you to return to the post if you decide not to make changes%>
+<%= button_to "Return to Post", post_path(flash[:post]), {method: :get} %>
     <%= form_for @post do |f| %>
     <%= f.text_field :title, placeholder: "Title", class:"textfield2" %><br><br>
     <%= f.text_area :content, placeholder: "Write Your Post", class:"textarea1"%><br><br>
@@ -10,3 +11,4 @@
 
 </div>
 </body>
+

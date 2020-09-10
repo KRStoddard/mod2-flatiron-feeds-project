@@ -11,6 +11,7 @@ Post.destroy_all
 Comment.destroy_all
 Group.destroy_all 
 GroupMember.destroy_all
+Cohort.destroy_all 
 
 puts "Starting Seed"
 
@@ -23,5 +24,7 @@ Cohort.create(code: "090820CS")
 Cohort.create
 
 User.create(username: "deleted_user", password_digest: "pass123", cohort_id: Cohort.find_by(code: nil).id)
+
+Cohort.find_by(code: nil).destroy 
 
 puts "Complete!"

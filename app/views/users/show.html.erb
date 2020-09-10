@@ -1,8 +1,13 @@
+
+
+
 <body>
+<%#shows welcome message when user signs in%>
 <% if flash[:success] %>
 <div class="flash-message"><%= flash[:success] %></div>
 <% end %>
-
+<%#shows profile if the user isn't deleted%>
+<% if @user != User.find_by(username: "deleted_user")%>
 <div class="container">
     <div class="profile-header">
         <div class="profile-nav-info">
@@ -29,12 +34,14 @@
                     <button class="create-post-btn">
                         <i class="fa fa-plus"></i>
                     <% if @user.id == @signed_in_user.id %>
+                    <%#if user is signed in they can create a post on their profile%>
                     <%= link_to "Create Post", new_post_path, {method: :get} %>
                     <% end %>
                     </button>
                     <button class="delete-post-btn">
                         <i class="fas fa-minus-square"></i>
                     <% if @user.id == @signed_in_user.id %>
+                    <%#signed in user can also delete their own account%>
                     <%= link_to "Delete Account", user_path(@user), {method: :delete, data: {confirm: true}} %>
                     <% end %>
                     </button>
@@ -45,7 +52,9 @@
             <div class="profile-nav-bar">
                 <div class="tab">
                  <input type="radio" id="tab-1" name="tab-group-1" checked>
-                 <label for="tab-1">Your Groups</label>
+
+                 <label for="tab-1">Groups Memberships</label>
+
                     <div class="content">
                               <% @user.groups.each do |group| %>    
                                     <h3 class="groups"> <%= link_to "#{group.name}", group_path(group) %></h3>
@@ -55,17 +64,27 @@
 
                 <div class="tab">
                     <input type="radio" id="tab-2" name="tab-group-1">
-                    <label for="tab-2">Your Posts</label>
+                    <label for="tab-2">Profile Posts</label>
          
                     <div class="content">
+                    <%#shows profile posts based on most recently posted%>
                             <% @user.profile_posts.reverse.each do |post| %>
+       
+                             <p> <%= link_to "Comments: #{post.comments.count}", post_path(post) %> </p>
+                            <% end %>
+
                             <h3 class="profile-post-title"> <%= link_to post.title, post_path(post) %> </h3>
+                            <p> <%= post.content[0...25] %>... </p>
                                  <% end %>
                      </div> 
                  </div>
             </div>
         </div>
    </div>
+   <% else %>
+   <%#if the user has been deleted, their profile shows this message%>
+   <h3 class="name-profile"> This User has been Deleted </h3>
+   <% end %>
 
 
 
