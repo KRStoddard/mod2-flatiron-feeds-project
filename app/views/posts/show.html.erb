@@ -1,10 +1,10 @@
 <body>
 
-<section class="post-container">
+<div class="post-container">
   <div class="post_box">
     <p class="post-creation-date"><%= @post.created_at.strftime("%B %d, %Y") %><p>
-    <h2 class="post-title"><%= @post.title %></h2>
-    <p>Author:<%= link_to User.find_by(id: @post.user_id).username, user_path(@post.user_id) %>
+    <h2 class="post-title"><%= @post.title %><p id="post-author"><%= link_to User.find_by(id: @post.user_id).username, user_path(@post.user_id) %></p>
+    </h2>
       <div class="post-buttons">
         <% if @post.user_id == @signed_in_user.id %>
            <button>
@@ -62,7 +62,7 @@
             </div>
         </div>
       </div>
-</section>
+</div>
  
-
+</body>
 

@@ -3,12 +3,14 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-// .flash-message {
-//     text-align: center;
-//     font-size: 30px;
-//     font-family: sans-serif;
-//     padding-top: 10px;
-// }
+.flash-message {
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+}
 
 .container {
     box-sizing: border-box;
@@ -200,6 +202,7 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     position: absolute;
     top: 28px;
     left: 0;
+    height: 230px;
     background: white;
     right: 0;
     bottom: 0;
@@ -215,13 +218,20 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
       border: 1px groove lightblue;
       margin: 10px;
   }
+  .user-posts{
+      border: 1px groove lightblue;
+      padding: 5px;
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: .7rem;
+  }
   .profile-post-title{
     font-family: sans-serif;
     text-align: left;
-    padding: 10px;
     font-size: .9rem;
-    border: 1px groove lightblue;
-    margin: 10px;
+  }
+  .profile-page-comments{
+      text-align: right;
   }
   [type=radio]:checked ~ label {
     background: white;
@@ -250,7 +260,7 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     }
     .profile-header{
         display: flex;
-        height: 100%;
+        height: 90%;
         flex-direction: column;
         text-align: center;
         padding-bottom: 20px;
@@ -276,6 +286,7 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     .profile-side {
         width: 100%;
         text-align: center;
+        height: 60%;
         padding: 20px;
         margin: 5px 0;
     }
