@@ -13,6 +13,9 @@
         <div class="profile-nav-info">
             <h3 class="name-profile"> <%= @user.full_name %>'s Profile
             </h3>
+            <% if @user.image.attached? %>
+            <p> <%= image_tag url_for(@user.image), size: '150x150' %></p> 
+            <% end %>
             <p class="user-name"> <%= @user.username %>
             </p>
         </div>

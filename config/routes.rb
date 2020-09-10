@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :messages
+  resources :chatmembers
+  resources :chats
   resources :replies
   resources :group_members, only: [:create, :destroy]
   resources :comments, except: [:index]

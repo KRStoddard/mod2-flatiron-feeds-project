@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     #creates a new user and, if valid, assigns them to their cohort's group
     #if not valid, redirects them back to the path
     def create 
-        @user = User.create(user_params(:username, :first_name, :last_name, :password, :birthday, :cohort_id))
+        @user = User.create(user_params(:username, :first_name, :last_name, :password, :birthday, :cohort_id, :image))
         if @user.valid?
             session[:signed_in_user_id] = @user.id
             GroupMember.create(user_id: @user.id, group_id: Group.find_by(code: @user.cohort.code).id)
@@ -54,6 +54,7 @@ class UsersController < ApplicationController
     def user_params(*args)
         params.require(:user).permit(*args)
     end
+
 
     
 end
