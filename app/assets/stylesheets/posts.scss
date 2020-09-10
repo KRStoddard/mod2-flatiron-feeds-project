@@ -3,47 +3,138 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.section {
-    display: flex;
+.new-post-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 30px;
+    padding-bottom: 20px;
 }
 
-.post_box {
-    flex: 1;
-    border: 2px #19B3D9;
-    border-style: solid;
+.new-post-box h1{
     text-align: center;
-}
-.post_box h2 {
-    text-decoration: underline;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 3px groove #68cdf5;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-h4 {
+.textfield2{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted #fff;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.textarea1{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted #fff;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.submit-button{
     text-align: center;
+    margin-top: 20px;
+    margin-left: 180px;
 }
 
-.button {
-    float: right;
-
-}
-
-.comments {
-    display: grid;
-    grid-template-columns: 600px;
-    align-items: center;
-    justify-content: space-around;
+.post-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 50%;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.8);
+    box-sizing: border-box;
+    padding: 30px;
+    padding-bottom: 20px;
     overflow: scroll;
-    scroll-behavior: auto;
 }
 
-.comment {
-    border: 1px black;
-    border-style: solid;
-    max-width: 600px;
-    text-align: center;
-
+.post-title{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 3px groove #68cdf5;
+    padding-bottom: 20px;
 }
 
-.button1 {
-    padding-left: 875px;
+.post-content{
+    padding: 20px 5px 5px 5px;
+    font-family: sans-serif;
+    text-align: left;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+
+.button-position{
+    text-align: right;
+}
+
+.post-buttons{
+    text-align: right;
+    padding-top: 5px;
+}
+
+.comment-label{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 3px groove #68cdf5;
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.ind-comment{
+    padding: 20px 5px 5px 5px;
+    font-family: sans-serif;
+    text-align: left;
+    font-weight: 300;
+    font-size: .8rem;
     margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border: .5px solid black;
+}
+
+.comment-user{
+    text-align: left;
+    font-size: .8rem;
+    padding-top: 10px;
+}
+
+.comment-buttons{
+    text-align: right;
+    padding-top: 5px;
+}
+
+.post-creation-date{
+    font-size: .8rem;
+    padding-bottom: 10px;
 }

@@ -15,6 +15,6 @@ class User < ApplicationRecord
     end
     #lists only posts that aren't made to a group
     def profile_posts
-        self.posts.select {|post| post.group_id == nil}
+        self.posts.each {|post| post.group_id == nil}
     end
 end

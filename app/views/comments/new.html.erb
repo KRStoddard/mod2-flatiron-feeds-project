@@ -1,4 +1,13 @@
-<h2> Add Comment </h2>
+<body class="create-account">
+<div class="new-post-box">
+    <h1> New Comment </h1>
 
-<%= render 'form'  %>
+    <%= form_for @comment do |f| %>
+    <%= f.text_area :content, placeholder: "Write Your Comment", class:"textarea1"%><br><br>
+    <%= f.submit "Add Comment", class:"submit-button" %>
+    <% end %>
+
+</div>
+</body>
+
 
