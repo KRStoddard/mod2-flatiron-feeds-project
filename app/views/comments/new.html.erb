@@ -1,6 +1,13 @@
-<%= form_for @comment do |f| %>
-<%= f.label :content %>
-<%= f.text_area :content %><br><br>
-<%= f.submit %>
-<% end %>
+<body class="create-account">
+<div class="new-post-box">
+    <h1> New Comment </h1>
+
+    <%= form_for @comment do |f| %>
+    <%= f.text_area :content, placeholder: "Write Your Comment", class:"textarea1"%><br><br>
+    <%= f.submit "Add Comment", class:"submit-button" %>
+    <% end %>
+
+</div>
+</body>
+
 

@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title> Login Form </title>
-        <%= stylesheet_link_tag "style.css" %>
-    </head>
-    <body class="login-main">
-       
+
+<body class="login-main">
+<%#shows error messages if you don't get information correct%>
 <% if flash[:error] %>
-    <p><%= flash[:error] %></p>
+<div class="alert">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <%= flash[:error] %>
+</div>
 <% end %>
 
 <div class="login-box">
 <h1> Login </h1>
-
+<%#allows user to sign in, we used encrypted passwords%>
 <%= form_for :session, url: login_path do |f| %>
 <%= f.text_field :username, placeholder: "Username", class:"textfield" %><br>
 <%= f.password_field :password, placeholder: "Password", class:"textfield" %>
@@ -23,4 +20,3 @@
 </div>
 
 </body>
-</html>

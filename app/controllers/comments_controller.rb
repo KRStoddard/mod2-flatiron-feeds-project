@@ -1,46 +1,44 @@
 class CommentsController < ApplicationController
-    before_action :find_comment, only: [:like, :edit, :update, :destroy]
+    before_action :find_comment, only: [:show, :like, :edit, :update, :destroy]
+    before_action :keep_group, only: [:show, :new, :edit]
+    before_action :keep_post, only: [:edit, :new]
+    #renders form for new comment
+    
+    def show 
+        flash[:comment] = @comment.id 
+    end
+    
     def new
         @comment = Comment.new
-        flash[:post] = flash[:post]
-        if flash[:group]
-            flash[:group] = flash[:group]
-        end
     end
-
+    #creates new comment or redirects back to the new form if comment isn't valid
     def create
-        @comment = Comment.create(comment_params(:content))
+        @comment = Comment.create(user_id: @signed_in_user.id, post_id: flash[:post], likes: 0)
+        @comment.update(comment_params(:content))
         if @comment.valid?
-            @comment.update(user_id: @signed_in_user.id, post_id: flash[:post], likes: 0)
-            if flash[:group]
-                redirect_to group_path(flash[:group])
-            else
-            redirect_to user_path(@signed_in_user)
-            end
+            redirect_to post_path(@comment.post_id)
         else
-            if flash[:group]
-                flash[:group] = flash[:group]
-            end
+            keep_group 
             flash[:errors] = @comment.errors.full_messages
-            flash[:post] = flash[:post]
+            keep_post
             redirect_to new_comment_path
         end
     end
-
+    #deletes comment
     def destroy
         @comment.destroy 
-        redirect_to user_path(@signed_in_user.id)
+        redirect_to post_path(flash[:post])
     end
-
-    def edit
+    #renders form to edit comment
+    def edit 
     end
-
+    #updates the comment
     def update
         @comment.update(comment_params(:content))
         redirect_to post_path(Post.find(@comment.post_id))
     end
 
-
+    #adds one like to the comment
     def like
         @comment.likes += 1
         @comment.save
@@ -49,11 +47,11 @@ class CommentsController < ApplicationController
     end
 
     private
-
+    #saves comment in URL to a variable
     def find_comment
         @comment = Comment.find(params[:id])
     end
-
+    #limits changes to comments based on passed in arguments
     def comment_params(*args)
         params.require(:comment).permit(*args)
     end

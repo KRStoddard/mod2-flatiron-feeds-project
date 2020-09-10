@@ -1,5 +1,6 @@
 <h1> Create a New Group </h1>
-
+<%#This form allows for the creation of a new group%>
+<%# we do not currently allow groups to be edited %>
 <%= form_for @group do |f| %>
 <%=f.label :name %>
 <%= f.text_field :name %><br><br>
@@ -7,5 +8,3 @@
 <%= f.text_area :description %><br><br>
 <%= f.submit %>
 <% end %>
-<br>
-<%= button_to "Return to Group Index", groups_path, {method: :get} %>

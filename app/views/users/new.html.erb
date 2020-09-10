@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title> Create Account </title>
-        <%= stylesheet_link_tag "style.css" %>
-    </head>
-    <body class="create-account">
 
+    <body class="create-account">
+<%#shows errors if account doesn't meet validations%>
+<%#we have some front end and back end validators%>
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
-    <p style="color: red"><%= error %></p>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <%= error %>
+      </div>
   <% end %>
 <% end %>
 
@@ -26,6 +24,9 @@
  <%= f.text_field :username, placeholder: "Username", class:"textfield1" %><br>
 
  <%= f.password_field :password, placeholder: "Password", class:"textfield1" %><br>
+
+  <%= f.file_field :image, class:"textfield1" %><br>
+
   <br>
  
   <%= f.collection_select :cohort_id, @cohorts, :id, :code, prompt: "Select Cohort", class:"dropdown" %>
@@ -36,4 +37,3 @@
 </div>
 
 </body>
-</html>
