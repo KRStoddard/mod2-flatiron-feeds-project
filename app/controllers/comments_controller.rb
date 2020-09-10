@@ -1,16 +1,21 @@
 class CommentsController < ApplicationController
-    before_action :find_comment, only: [:like, :edit, :update, :destroy]
+    before_action :find_comment, only: [:show, :like, :edit, :update, :destroy]
     before_action :keep_group, only: [:show, :new, :edit]
     before_action :keep_post, only: [:edit, :new]
     #renders form for new comment
+    
+    def show 
+        flash[:comment] = @comment.id 
+    end
+    
     def new
         @comment = Comment.new
     end
     #creates new comment or redirects back to the new form if comment isn't valid
     def create
-        @comment = Comment.create(comment_params(:content))
+        @comment = Comment.create(user_id: @signed_in_user.id, post_id: flash[:post], likes: 0)
+        @comment.update(comment_params(:content))
         if @comment.valid?
-            @comment.update(user_id: @signed_in_user.id, post_id: flash[:post], likes: 0)
             redirect_to post_path(@comment.post_id)
         else
             keep_group 

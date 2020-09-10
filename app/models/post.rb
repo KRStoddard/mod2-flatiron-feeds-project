@@ -1,8 +1,6 @@
 class Post < ApplicationRecord
-    has_one :user 
+    belongs_to :user 
     has_one :group
     has_many :comments
-
-
 
 end

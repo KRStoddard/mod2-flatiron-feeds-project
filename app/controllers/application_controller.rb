@@ -21,4 +21,10 @@ class ApplicationController < ActionController::Base
             flash[:post] = flash[:post]
         end
     end
+    
+    def keep_comment
+        if flash[:comment]
+            flash[:comment] = flash[:comment]
+        end
+    end
 end
