@@ -1,14 +1,40 @@
-<h2> Comment Thread </h2>
-<h3> <%= @comment.content %></h3>
-<p>Author: <%= @comment.user.username%> </p>
-<h3> Replies </h3>
-<% @comment.replies.each do |reply| %>
-<h4><%=reply.content%></h4>
-<p><%= reply.user.username %></p>
-<p>Likes: <%= reply.likes%>
-<% if reply.user == @signed_in_user%>
-<%= button_to "Delete Reply", reply_path(reply), {method: :delete} %>
-<% end %>
-<% end %>
+<body>
 
-<%= button_to "Reply", new_reply_path, {method: :get} %>
+<div class="post-container">
+    <div class="post-box">
+        <h2 class="post-title"> Comment Thread 
+        <p id="post-author"><%= link_to @comment.user.username, user_path(@comment.user.id)%>
+        </p>
+        </h2>
+            <p class="post-content"> <%= @comment.content %>
+            </p>
+        <div class="comments">
+        <h4 class="comment-label">Replies: </h4> 
+        </div>
+        <div>
+        <% @comment.replies.each do |reply| %>
+            <p class="comment-user"><%= reply.user.username %>: </p>
+            <p class="ind-comment"><%= reply.content %></p>
+
+            <div class="button-position"> 
+            <button id="like-button">
+             <i class="fas fa-heart"></i>
+             <%= link_to "Like #{reply.likes}", like_reply_path(reply), method: :patch %>
+              </button>
+          </div>
+          <div class="comment-buttons">
+               <% if reply.user_id == @signed_in_user.id %>
+               <button> 
+                <i class="fas fa-edit"></i>
+                  <%= link_to "Delete", reply_path(reply), {method: :delete} %>
+                 </button>
+                 <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <%= button_to "Reply", new_reply_path, {method: :get} %>
+
+</body>

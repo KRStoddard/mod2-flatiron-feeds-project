@@ -37,11 +37,17 @@
         <div class="ind-comment">
            <% @comment = comment %>
             <%= comment.content %>
-            <p> Replies: <%= link_to comment.replies.count, comment_path(comment), {method: :get} %>
+        </div>
+        <div class="view-replies">
+        <%= link_to "Replies: #{comment.replies.count}", comment_path(comment), {method: :get} %>
         </div>
          
          <div class="button-position"> 
-             <button id="like-button">
+            <button id="reply-button">
+            <i class="fas fa-reply"></i>
+            <%= link_to "Reply", new_reply_path, {method: :get} %>
+            </button> 
+            <button id="like-button">
              <i class="fas fa-heart"></i>
               <%= link_to "Like #{@comment.likes}", like_comment_path(@comment), method: :patch %></button>
               </button>
@@ -52,12 +58,12 @@
                <button>
                <i class="far fa-trash-alt"></i>
                 <%= link_to "Edit", edit_comment_path(@comment), {method: :get} %>
-               <% end %>
                </button> 
                <button> 
                 <i class="fas fa-edit"></i>
                   <%= link_to "Delete", comment_path(@comment), {method: :delete} %>
                  </button>
+                 <% end %>
                 <% end %>
             </div>
         </div>

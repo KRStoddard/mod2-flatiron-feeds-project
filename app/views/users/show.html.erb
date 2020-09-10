@@ -72,7 +72,9 @@
                             <ul>
                                 <% @user.profile_posts.reverse.each do |post| %>
                                 <li class="user-posts"><h3 class="profile-post-title"> <%= link_to post.title, post_path(post) %> </h3>
+                                    <% if post.content %>
                                     <p> <%= post.content[0...25] %>... </p>
+                                    <% end %>
                                     <p class="profile-page-comments"> <%= link_to "Comments: #{post.comments.count}", post_path(post) %> </p>
                                     <% end %>
                                 </li>

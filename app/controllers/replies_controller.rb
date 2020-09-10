@@ -17,6 +17,14 @@ class RepliesController < ApplicationController
         end
     end
 
+    def like
+        @reply = Reply.find(params[:id])
+        @reply.likes += 1
+        @reply.save
+
+        redirect_to comment_path(@reply.comment_id)
+    end
+
     def destroy
         @reply = Reply.find(params[:id])
         @reply.destroy 
