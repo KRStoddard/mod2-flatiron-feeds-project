@@ -1,44 +1,76 @@
 
-<div class="flash">
 <% if flash[:success] %>
-<p><%= flash[:success] %></p>
-<% end %>
-</div>
-<h2> <%= @user.full_name %>'s Profile </h2> 
-
-
-<section>
-<aside>
-<h3>My Groups: </h3>
-<div class="box">
-<ul>
-<% @user.groups.each do |group| %>
-    <li><%= link_to "#{group.name}", group_path(group) %></li>
-<% end %>
-</ul>
-</aside>
-
-<div class="posts">
-<h3> Profile Posts </h3>
-<div class="button2">
-<% if @user.id == @signed_in_user.id %>
-<%= button_to "Create Post", new_post_path, {method: :get} %>
-<% end %>
-</div>
-<div class="box">
-<% @user.profile_posts.reverse.each do |post| %>
-<div class="post">
-<h3> <%= link_to post.title, post_path(post) %> </h3>
-<p> <%= post.content %> </p>
-<p> <%= link_to "Comments: #{post.comments.count}", post_path(post) %>
-</div>
-<% end %>
-</div>
-</section>
-<% if @user.id == @signed_in_user.id %>
-<div class="button1"> <%= button_to "Delete Account", user_path(@user), {method: :delete, data: {confirm: true}} %></div>
+<div class="flash-message"><%= flash[:success] %></div>
 <% end %>
 
+<div class="container">
+    <div class="profile-header">
+        <div class="profile-nav-info">
+            <h3 class="name-profile"> <%= @user.full_name %>'s Profile
+            </h3>
+            <p class="user-name"> <%= @user.username %>
+            </p>
+        </div>
+        <div class="profile-option">
+            <div class="notification">
+            <i class="fa fa-bell"></i>
+            <span class="alert-message">1</span>
+         </div>
+    </div>
+</div>
+    <div class="main-bd">
+        <div class="left-side">
+            <div class="profile-side">
+                <p class="birthday"><i class="fas fa-birthday-cake"></i><%= @user.birthday %></p>
+                <div class="profile-btn">
+                    <button class="chatbtn">
+                        <i class="fa fa-comment"></i> Chat
+                    </button>
+                    <button class="create-post-btn">
+                        <i class="fa fa-plus"></i>
+                    <% if @user.id == @signed_in_user.id %>
+                    <%= link_to "Create Post", new_post_path, {method: :get} %>
+                    <% end %>
+                    </button>
+                    <button class="delete-post-btn">
+                        <i class="fas fa-minus-square"></i>
+                    <% if @user.id == @signed_in_user.id %>
+                    <%= link_to "Delete Account", user_path(@user), {method: :delete, data: {confirm: true}} %>
+                    <% end %>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="profile-nav-bar">
+                <div class="tab">
+                 <input type="radio" id="tab-1" name="tab-group-1" checked>
+                 <label for="tab-1">Your Groups</label>
+     
+                    <div class="content">
+                         <ul>
+                              <% @user.groups.each do |group| %>
+                              <li><%= link_to "#{group.name}", group_path(group) %></li>
+                              <% end %>
+                         </ul>
+                    </div> 
+                </div>
+
+                <div class="tab">
+                    <input type="radio" id="tab-2" name="tab-group-1">
+                    <label for="tab-2">Your Posts</label>
+         
+                    <div class="content">
+                            <% @user.profile_posts.reverse.each do |post| %>
+                            <h3> <%= link_to post.title, post_path(post) %> </h3>
+                            <p> <%= post.content %> </p>
+                             <p> <%= link_to "Comments: #{post.comments.count}", post_path(post) %> </p>
+                            <% end %>
+                     </div> 
+                 </div>
+            </div>
+        </div>
+   </div>
 
 
 
