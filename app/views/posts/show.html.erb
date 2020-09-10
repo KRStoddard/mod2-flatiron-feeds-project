@@ -39,6 +39,7 @@
             <%= comment.content %>
         </div>
         <div class="view-replies">
+        <% flash[:comment] = comment.id %>
         <%= link_to "Replies: #{comment.replies.count}", comment_path(comment), {method: :get} %>
         </div>
          

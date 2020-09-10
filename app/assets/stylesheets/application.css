@@ -26,7 +26,7 @@
  body {
      background: linear-gradient(120deg, lightblue, #2980b9);
      background-repeat: no-repeat;
-     height: 600px;
+     height: 650px;
      font-family: sans-serif;
  }
 
@@ -67,10 +67,15 @@
      text-transform: uppercase;
  }
 
- a:active, a:hover{
-     background: #1b9bff;
-     transition: .5s;
- }
+ .btn-two:hover{
+    background-color: lightblue;
+    transition: all 0.5s ease-in;
+}
+
+.nav-option:hover{
+    background-color: rgb(85, 156, 236);
+    transition: all 0.5s ease-in;
+}
  
  .checkbtn{
      font-size: 30px;

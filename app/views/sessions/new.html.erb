@@ -2,7 +2,10 @@
 <body class="login-main">
 <%#shows error messages if you don't get information correct%>
 <% if flash[:error] %>
-    <p><%= flash[:error] %></p>
+<div class="alert">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <%= flash[:error] %>
+</div>
 <% end %>
 
 <div class="login-box">

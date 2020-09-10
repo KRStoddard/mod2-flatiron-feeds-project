@@ -11,13 +11,17 @@
 <div class="container">
     <div class="profile-header">
         <div class="profile-nav-info">
+            <div class="profile-img">
+                <% if @user.image.attached? %>
+                    <%= image_tag url_for(@user.image) %>
+                <% end %>
+            </div>
+            <div class="main-name">
             <h3 class="name-profile"> <%= @user.full_name %>'s Profile
             </h3>
-            <% if @user.image.attached? %>
-            <p> <%= image_tag url_for(@user.image), size: '150x150' %></p> 
-            <% end %>
             <p class="user-name"> <%= @user.username %>
             </p>
+            </div>
         </div>
         <div class="profile-option">
             <div class="notification">

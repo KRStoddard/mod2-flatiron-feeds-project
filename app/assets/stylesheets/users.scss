@@ -24,7 +24,27 @@
     display: flex;
     height: 150px;
     position: relative;
+    border-radius: 2px;
     box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+}
+
+.profile-img{
+    float: left;
+    width: 300px;
+    height: 200px;
+}
+
+.profile-img img {
+    border-radius: 50%;
+    height: 230px;
+    width: 230px;
+    border: 4px solid #fff;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    z-index: 5;
+    background: #fff;
 }
 
 .profile-nav-info{
@@ -35,9 +55,14 @@
     padding-left: 20px;
 }
 
+.main-name{
+    float: left;
+}
+
 .profile-nav-info h3{
     font-variant: small-caps;
     font-size: 2rem;
+    text-align: center;
     font-family: sans-serif;
     font-weight: bold;
 }
@@ -101,13 +126,14 @@
 
 .profile-side {
     width: 300px;
-    height: 230px;
+    height: 280px;
     background: #fff;
     box-shadow: 0px 3px 5px rgba(0,0,0,.2);
-    padding: 40px 30px 20px;
+    padding: 130px 30px 20px;
     font-family: sans-serif;
     margin-left: 10px;
     z-index: 99;
+    border-radius: 3px;
 }
 
 .profile-side p{
@@ -202,12 +228,12 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     position: absolute;
     top: 28px;
     left: 0;
-    height: 230px;
+    height: 700px;
     background: white;
     right: 0;
     bottom: 0;
     padding: 15px;
-    border: 1px solid #ccc; 
+    border: .5px groove lightblue; 
     width: 100%;
   }
   .groups {
@@ -216,10 +242,12 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
       padding: 10px;
       font-size: .9rem;
       border: 1px groove lightblue;
+      border-radius: 2px;
       margin: 10px;
   }
   .user-posts{
       border: 1px groove lightblue;
+      border-radius: 2px;
       padding: 5px;
       text-align: left;
       margin-bottom: 5px;
@@ -229,6 +257,7 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     font-family: sans-serif;
     text-align: left;
     font-size: .9rem;
+    padding-bottom: 4px;
   }
   .profile-page-comments{
       text-align: right;
@@ -247,10 +276,43 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
 //     z-index: -1;
 // }
 
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    z-index: 999;
+    opacity: 0.7;
+  }
+  
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+
 @media(max-width: 1100px) {
     .profile-side{
         width: 250px;
-        padding: 40px 15px 20px;
+        padding: 120px 15px 20px;
+    }
+    .profile-img img{
+        height: 200px;
+        width: 200px;
+        left: 50px;
+        top: 50px;
     }
 }
 
@@ -264,6 +326,16 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
         flex-direction: column;
         text-align: center;
         padding-bottom: 20px;
+    }
+    .profile-img {
+        float: left;
+        width: 50%;
+        height: 200px;
+    }
+    .profile-img img {
+        position: relative;
+        top: 0;
+        left: 0;
     }
     .profile-nav-bar{
         width: 100%;
@@ -327,3 +399,5 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
         } 
     }   
 }
+
+
