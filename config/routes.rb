@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   delete '/sessions/delete', to: 'sessions#logout', as: 'logout'
   patch '/posts/:id/like', to: 'posts#like', as: 'like'
   patch '/comments/:id/like', to: 'comments#like', as: 'like_comment'
+  patch '/replies/:id/like', to: 'replies#like', as: 'like_reply'
+
 end
