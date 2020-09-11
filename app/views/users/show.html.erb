@@ -24,10 +24,12 @@
             </div>
         </div>
         <div class="profile-option">
+        <% if @user.id == @signed_in_user.id %>
             <div class="notification">
             <i class="fa fa-bell"></i>
-            <span class="alert-message">1</span>
+            <span class="alert-message"> <%= link_to @user.notifications.unread.count, notifications_path %></span>
          </div>
+         <% end %>
     </div>
 </div>
     <div class="main-bd">

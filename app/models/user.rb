@@ -8,6 +8,7 @@ class User < ApplicationRecord
     has_many :chats, through: :chatmembers 
     has_many :messages
     has_many :replies
+    has_many :notifications, foreign_key: :recipient_id
     has_secure_password
     has_one_attached :image 
     #checks to make sure username is unique and that the user belongs to a cohort
