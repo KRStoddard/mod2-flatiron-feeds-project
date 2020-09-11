@@ -1,0 +1,9 @@
+<h2> View Your Chats </h2>
+
+<%= button_to "Create New Chat", new_chat_path, {method: :get} %>
+<% @user.chats.each do |chat| %>
+<%= link_to chat.name, chat_path(chat), {method: :get} %>
+<% chat.users.each do |user| %>
+<p><%= user.username %></p>
+<% end %>
+<% end %>

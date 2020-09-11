@@ -29,4 +29,11 @@ class ApplicationController < ActionController::Base
             flash[:comment] = flash[:comment]
         end
     end
+
+    def keep_chat
+        if flash[:chat]
+            flash[:chat] = flash[:chat]
+        end
+    end
+
 end
