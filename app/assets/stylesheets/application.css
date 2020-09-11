@@ -26,7 +26,7 @@
  body {
      background: linear-gradient(120deg, lightblue, #2980b9);
      background-repeat: no-repeat;
-     height: 650px;
+     height: 750px;
      font-family: sans-serif;
  }
 
@@ -133,4 +133,10 @@
 #homepage-logo{
     padding-left: 7px;
     padding-top: 7px;
+}
+
+
+
+#name-group{
+    text-align: center;
 }
