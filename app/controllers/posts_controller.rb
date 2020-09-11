@@ -17,6 +17,9 @@ class PostsController < ApplicationController
         if @post.valid?
             if flash[:group]
                 @post.update(group_id: flash[:group])
+                (Group.find(@post.group_id).users.uniq - [@signed_in_user]).each do |user|
+                    Notification.create(recipient: user, actor: @signed_in_user, action: "posted", notifiable: @post)
+                end
             end
             if @post.group_id
                 redirect_to group_path(@post.group_id)

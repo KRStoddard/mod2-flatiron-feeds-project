@@ -9,12 +9,13 @@
     margin-top: 10px;
 }
 
-.group-title{
-   position: fixed;
-   left: 2.4cm;
-   top: 5cm;
-   font-size: 32px;
-   color: black;
+.page-head{
+    position: absolute;
+    left: 0.4cm;
+    top: 2cm;
+    font-size: 32px;
+    color: black;
+    font-family: sans-serif;
 }
 
 .group-name{
@@ -23,8 +24,8 @@
 }
 
 .description{
-    position: relative;
-    left: 35px;
+    position: initial;
+    padding-left: 38px;
 }
 
 .center{
@@ -34,10 +35,10 @@
 }
 
 .list-box {
-    background: rgba(255, 255, 255, 0.5) ;
+    background: #C6E0EC;
     display: flex;
     height: 150px;
-    position: fixed;
+    position: absolute;
     left: 2cm;
     top: 3.5cm;
     right: 2cm;
@@ -52,22 +53,24 @@
 }
 
 .group-display{
-    background: white ;
-     display: list-item;
-     height: 150px;
-     position: fixed;
-     left: 2cm;
-     top: 282px;
-     right: 2.8cm;
-     box-shadow: 0px 3px 4px rgba(0,0,0,.2);
-     z-index: -1;
+    display: flow-root;
+    width: 802px;
+    height: 383px;
+    background: #fff;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    padding: 110px 1px 0px;
+    font-family: sans-serif;
+    margin-left: -154px;
+    z-index: -1;
+    border-radius: 3px;
+    overflow: scroll;
+    scroll-behavior: auto;
 }
 
 .create{
-    position: absolute;
-    position: fixed;
-    left: 1000px;
-    bottom: 291px;
+    position: initial;
+    padding-left: 95px;
+    padding-top: 2px;
 }
 
 .name-group{
