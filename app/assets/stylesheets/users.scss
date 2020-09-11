@@ -157,7 +157,7 @@ button.chatbtn, button.create-post-btn, button.delete-post-btn {
     width: 100%;
     border-radius: 3px;
     background: lightblue;
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 1rem;
     margin: 5px 2px;
     cursor: pointer;
@@ -223,7 +223,7 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     display: none;   
   }
   .content {
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
     position: absolute;
     top: 28px;
     left: 0;
@@ -236,7 +236,7 @@ button.chatbtn i, button.create-post-btn i, button.delete-post-btn i{
     width: 100%;
   }
   .groups {
-      font-family: sans-serif;
+      font-family: 'Nunito', sans-serif;
       text-align: center;
       padding: 10px;
       font-size: .9rem;

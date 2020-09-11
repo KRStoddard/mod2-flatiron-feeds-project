@@ -1,14 +1,25 @@
-<h1> <%= @group.name %>'s Members </h1>
-<%#shows group members and links to their profile. Ordered by most recent%>
-<ul> <% @group.sort_memberships.each do |groupmember| %>
-    <li> <%= link_to groupmember.user.full_name, user_path(groupmember.user) %>
-    <ul>
-        <li style="list-style: none"> Joined: <%= groupmember.created_at %> </li>
-     </ul>
-    </li>
-<% end %>
-</ul>
-<%#allows user to return to the group they were looking at%>
-<%= button_to "Return to Group Page", group_path(@group), method: :get %>
+<div class="post-container">
 
+<h2 class="my-post-title"> <%= @group.name %> <h2>
+    <%#shows group members and links to their profile. Ordered by most recent%>
+<p class="members-word"> Members: </p>
+    <div class="members-box">
+        <ul> 
+            <li class="groupmember-name">
+             <% @group.sort_memberships.each do |groupmember| %>
+              <%= link_to groupmember.user.full_name, user_path(groupmember.user) %>
+              </li>
+              <li class="groupmember-date">  
+              Joined: <%= groupmember.created_at.strftime("%B %d, %Y") %> 
+             </li>
+        </ul>
+        <% end %>
+    </div>
+
+<%#allows user to return to the group they were looking at%>
+<div class="return-to-grp">
+<%= button_to "Return to Group Page", group_path(@group), method: :get %>
+</div>
+
+</div>
 

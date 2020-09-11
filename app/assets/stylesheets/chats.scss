@@ -157,25 +157,24 @@
 .message-username{
     padding: 10px;
     font-size: .8rem;
+    text-align: left;
 }
 
 .ind-chat-message{
     border: 1px groove blue;
     margin: 15px;
+    margin-bottom: 5px;
     margin-left: 5px;
     padding: 5px;
 }
 
 .message-content{
+    text-align: left;
     padding-left: 10px;
     padding-bottom: 15px;
 }
 
-.return-button {
-    font-family: sans-serif;
-    text-align: center;
-    font-weight: 300;
-    margin-left: 100px;
-    margin-top: 10px;
+.return-chats-button {
+    margin-top: 20px;
 }
 

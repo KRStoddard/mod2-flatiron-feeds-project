@@ -197,3 +197,43 @@ button.leavegroup i, button.create-post-btn i, button.join-group i{
     font-size: .7rem;
     padding-bottom: 10px;
 }
+
+.members-box{
+    border: 1px groove lightblue;
+    padding: 10px;
+    margin: 10px;
+}
+
+.groupmember-name{
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.groupmember-date{
+    text-align: right;
+    font-size: .7rem;
+    font-weight: 200;
+
+}
+
+.group-name{
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+.new-group-btn{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.return-to-grp{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.members-word{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    padding-top: 20px;
+}

@@ -1,6 +1,14 @@
-<h2> New Message </h2>
+<body class="create-account">
+<div class="message-post-box">
+
+<h1 class="new-message-title"> New Message </h1>
 
 <%= form_for @message do |f| %>
-<%= f.text_area :content %>
-<%= f.submit %>
+<%= f.text_area :content, placeholder: "New Message", class:"textfield2"%>
+<div class="post-msg-btn">
+<%= f.submit "Post Message" %>
+</div>
 <% end %>
+
+</div>
+</body>
