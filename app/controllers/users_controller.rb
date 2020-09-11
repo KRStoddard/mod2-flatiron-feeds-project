@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :destroy]
+    before_action :find_user, only: [:show, :destroy, :chat]
     before_action :going_home, only: [:home]
     skip_before_action :authorized, only: [:new, :create, :home]
     #profile page for user
@@ -37,6 +37,9 @@ class UsersController < ApplicationController
         @user.comments.each {|comment| comment.update(user_id: User.find_by(username: "deleted_user").id)}
         @user.destroy 
         redirect_to users_home_path
+    end
+
+    def chat
     end
 
     private

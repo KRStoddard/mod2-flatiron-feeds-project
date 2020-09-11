@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/groups/:id/members', to: 'groups#view_members', as: 'view_members'
   resources :users, except: [:index, :udpate, :edit]
   get '/homepage', to: 'users#home', as: 'users_home'
+  get '/user/:id/chats', to: 'users#chat', as: 'user_chat'
   #get '/users/:id', to: 'users#show', as: 'user'
   post '/login', to: 'sessions#login', as: 'login'
   get '/sessions/new', to: 'sessions#new', as: 'new_login'

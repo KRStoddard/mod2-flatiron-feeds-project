@@ -35,9 +35,18 @@
             <div class="profile-side">
                 <p class="birthday"><i class="fas fa-birthday-cake"></i><%= @user.birthday.strftime("%B %d, %Y")  %></p>
                 <div class="profile-btn">
+                <% if @user.id == @signed_in_user.id %>
                     <button class="chatbtn">
                         <i class="fa fa-comment"></i> Chat
+                        <%= link_to "Chats", user_chat_path, {method: :get} %>
                     </button>
+                <% else %>
+                <button class="chatbtn">
+                        <i class="fa fa-comment"></i> Chat
+                        <% flash[:user] = @user.id %>
+                        <%= link_to "Create Chat", new_chat_path, {method: :get} %>
+                    </button>
+                <% end %>
                     <button class="create-post-btn">
                         <i class="fa fa-plus"></i>
                     <% if @user.id == @signed_in_user.id %>
