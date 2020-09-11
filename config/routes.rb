@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :comments, except: [:index]
   resources :posts, except: [:index]
   resources :groups, except: [:edit, :update]
+  resources :notifications
   get '/groups/:id/members', to: 'groups#view_members', as: 'view_members'
   resources :users, except: [:index, :udpate, :edit]
   get '/homepage', to: 'users#home', as: 'users_home'
