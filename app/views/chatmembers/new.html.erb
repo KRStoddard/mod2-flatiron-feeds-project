@@ -1,15 +1,18 @@
+<div class="new-post-box">  
 <% if flash[:errors] %>
 <% flash[:errors].each do |error| %>
 <p class="error"> <%= error %> </p>
 <% end %>
 <% end %>
-<h2> Add Chat Member </h2>
+<h1> Add Chat Member </h1>
 <%= form_for @chatmember do |f| %>
-<%= f.label :user %>
-<%= f.collection_select :user_id, @users, :id, :username %><br>
-<%= f.label :chat %>
-<%= f.collection_select :chat_id, @chats, :id, :name %>
+<%= f.label :user, class:"chatmember-label"%>
+<%= f.collection_select :user_id, @users, :id, :username%><br><br>
+<%= f.label :chat, class:"chatmember-label" %>
+<%= f.collection_select :chat_id, @chats, :id, :name %><br><br>
 <%= f.submit %>
 <% end %>
-
+<div class="Return Button">
 <%= button_to "Return to Chat", chat_path(flash[:chat]), {method: :get} %>
+</div>
+</div>  

@@ -1,12 +1,17 @@
-<h2> Your notifications </h2>
+<div class="post-container">
+    <h2 class="my-post-title"> Your notifications </h2>
 
-<% @notifications.unread.reverse.each do |notification| %>
-<% if notification.notifiable_type == "Message"%>
-<%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in #{notification.notifiable.chat.name}", chat_path(notification.notifiable.chat) %>
-<% elsif notification.notifiable_type == "Post"%>
-<%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in #{Group.find_by(id: notification.notifiable.group_id).name}", group_path(Group.find_by(id: notification.notifiable.group_id)) %>
-<% elsif notification.notifiable_type == "Reply"%>
-<%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in comment thread", comment_path(notification.notifiable.comment) %>
-<% end %>
-<%= button_to "Mark as Read", notification_path(notification), {method: :patch} %>
-<% end %>
+    <ul> <% @notifications.unread.reverse.each do |notification| %>
+    <li> 
+    <div class="individual-chat">
+    <% if notification.notifiable_type == "Message"%>
+    <%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in #{notification.notifiable.chat.name}", chat_path(notification.notifiable.chat) %>
+    <% elsif notification.notifiable_type == "Post"%>
+    <%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in #{Group.find_by(id: notification.notifiable.group_id).name}", group_path(Group.find_by(id: notification.notifiable.group_id)) %>
+    <% elsif notification.notifiable_type == "Reply"%>
+    <%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in comment thread", comment_path(notification.notifiable.comment) %>
+    <% end %>
+    <%= button_to "Mark as Read", notification_path(notification), {method: :patch} %>
+    </div> </li>
+    <% end %> </ul>
+</div>
