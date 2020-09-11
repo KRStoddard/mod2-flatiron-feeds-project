@@ -14,13 +14,10 @@
     font-size: 32px;
     color: black;
     font-family: sans-serif;
-
-
 }
 
 .group-name{
     font-size: 20px;
-    
 }
 
 .description{
@@ -28,9 +25,6 @@
     padding-left: 38px;
 }
 
-a{
-  text-decoration: underline;  
-}
 .center{
     padding-left: 250px;
     margin-top: 100px;
@@ -150,4 +144,29 @@ a{
     text-align: left;
     font-weight: 300;
     padding-bottom: 20px;
+}
+
+.chat-members-message{
+    font-size: .9rem;
+    font-weight: 400;
+    color: rgb(105, 106, 107);
+    text-align: right;
+    text-transform: capitalize;
+}
+
+.message-username{
+    padding: 10px;
+    font-size: .8rem;
+}
+
+.ind-chat-message{
+    border: 1px groove blue;
+    margin: 15px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.message-content{
+    padding-left: 10px;
+    padding-bottom: 15px;
 }
