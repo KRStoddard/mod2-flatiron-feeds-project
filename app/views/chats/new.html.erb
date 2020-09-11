@@ -1,6 +1,9 @@
-<h2> Start a New Chat! </h2>
-
+<div class="new-post-box">  
+    <h1> Start a New Chat! </h1>
+    <%= button_to "Return to Chats", user_chat_path(@signed_in_user), {method: :get} %>
 <%= form_for @chat do |f| %>
-<%= f.text_field :name %>
-<%= f.submit %>
+<%= f.text_field :name, placeholder: "Chat Name", class:"textfield2" %><br><br>
+<%= f.submit "Create Chat", class:"submit-button" %>
 <% end %>
+
+</div>

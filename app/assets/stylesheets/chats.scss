@@ -1,3 +1,153 @@
 // Place all the styles related to the Chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.list-style{
+    list-style: none;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.page-head{
+    position: absolute;
+    left: 0.4cm;
+    top: 2cm;
+    font-size: 32px;
+    color: black;
+    font-family: sans-serif;
+
+
+}
+
+.group-name{
+    font-size: 20px;
+    
+}
+
+.description{
+    position: initial;
+    padding-left: 38px;
+}
+
+a{
+  text-decoration: underline;  
+}
+.center{
+    padding-left: 250px;
+    margin-top: 100px;
+    margin-right: 200px;
+}
+
+.list-box {
+    background: #C6E0EC;
+    display: flex;
+    height: 150px;
+    position: absolute;
+    left: 2cm;
+    top: 3.5cm;
+    right: 2cm;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+}
+
+.group-listing{
+    float: left;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+}
+
+.group-display{
+    display: flow-root;
+    width: 802px;
+    height: 383px;
+    background: #fff;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    padding: 110px 1px 0px;
+    font-family: sans-serif;
+    margin-left: -154px;
+    z-index: -1;
+    border-radius: 3px;
+    overflow: scroll;
+    scroll-behavior: auto;
+}
+
+.create{
+    position: initial;
+    padding-left: 95px;
+    padding-top: 2px;
+}
+
+.new-post-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 30px;
+    padding-bottom: 20px;
+}
+
+.textfield2{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted #fff;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.submit-button{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 180px;
+}
+
+.post-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 50%;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.8);
+    box-sizing: border-box;
+    padding: 30px;
+    padding-bottom: 20px;
+    overflow: scroll;
+}
+
+.post-title{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 3px groove #68cdf5;
+    padding-bottom: 4px;
+}
+
+#post-author{
+    font-size: .8rem;
+    text-align: right;
+    text-transform: none;
+}
+
+.post-buttons{
+    text-align: right;
+    padding-top: 5px;
+}
+
+.post-content{
+    padding: 20px 5px 5px 5px;
+    font-family: sans-serif;
+    text-align: left;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
