@@ -13,12 +13,13 @@
                 <i class="fas fa-plus"></i>
                 <%= link_to "New Message", new_message_path, {method: :get} %>
             </button>
-        
+
+            
         <% @chat.messages.reverse.each do |message| %>
             <div class="ind-chat-message">
             <p class="message-username"> <%= link_to message.user.username, user_path(message.user.id) %> says: </p>
             <p class="message-content"> <%= message.content %> <p>
-            
+            </div>
             <% if message.user_id == @signed_in_user.id%>
                 <div class="comment-buttons">
                 <button>
@@ -29,14 +30,18 @@
                     <i class="far fa-trash-alt"></i>
                     <%= link_to "Delete Message", message_path(message), {method: :delete} %>
                 </button>
-                
             <% end %>
         <% end %>
-        </div>
+            </div>
+
+        <button class="return-chats-button">
+        <%= link_to "Return to Chats", user_chat_path(@signed_in_user), {method: :get} %>
+            </button>
     </div>
 
-<%= button_to "Return to Chats", user_chat_path(@signed_in_user), {method: :get} %>
+
 <% else %>
     <p>You must be invited to this chat to view it.</p>
 <% end %>
+
 
