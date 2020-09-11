@@ -148,8 +148,8 @@ button.leavegroup i, button.create-post-btn i, button.join-group i{
 .post-right{
     background: rgba(181, 185, 187, 0.2);
      display: list-item;
-     height: 70%;
-     width: 100%;
+     height: 400px;
+     width: 90%;
      left: 340px;
      right: 2.5cm;
      box-shadow: 0px 3px 4px rgba(0,0,0,.2);
@@ -163,7 +163,8 @@ button.leavegroup i, button.create-post-btn i, button.join-group i{
 .group-post-title{
     text-align: justify;
     color: white;
-    font-variant: small-caps;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
     font-weight: 600;
     font-size: 1.5rem;
     border-bottom: 1px groove #68cdf5;
@@ -177,7 +178,7 @@ button.leavegroup i, button.create-post-btn i, button.join-group i{
 
 .group-post-author{
     text-align: right;
-    padding-right: 10px;
+    padding-right: 20px;
     font-size: 0.8rem;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -187,13 +188,13 @@ button.leavegroup i, button.create-post-btn i, button.join-group i{
     text-align: left;
     font-weight: 300;
     padding-left: 30px;
-    padding-right: 30px;
+    padding-right: 20px;
 }
 
 .comment-ct{
     padding-top: 20px;
     text-align: right;
-    padding-right: 10px;
+    padding-right: 20px;
     font-size: .7rem;
     padding-bottom: 10px;
 }

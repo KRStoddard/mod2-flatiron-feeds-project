@@ -4,6 +4,7 @@
     <ul> <% @notifications.unread.reverse.each do |notification| %>
     <li> 
     <div class="individual-chat">
+   
     <% if notification.notifiable_type == "Message"%>
     <%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in #{notification.notifiable.chat.name}", chat_path(notification.notifiable.chat) %>
     <% elsif notification.notifiable_type == "Post"%>
@@ -11,7 +12,9 @@
     <% elsif notification.notifiable_type == "Reply"%>
     <%= link_to "#{notification.actor.username} #{notification.action} a #{notification.notifiable_type} in comment thread", comment_path(notification.notifiable.comment) %>
     <% end %>
+    <div class="read-btn">
     <%= button_to "Mark as Read", notification_path(notification), {method: :patch} %>
+    </div>
     </div> </li>
     <% end %> </ul>
 </div>
