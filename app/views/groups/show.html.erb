@@ -1,24 +1,66 @@
-<%#Lists Group's name and description%>
-<h2> Welcome to <%= @group.name %>! </h2>
-<p> <%= @group.description %> </p>
-<%#since Javascript isn't allowed, we opted to have a new page to list group members%>
-<%=link_to "View our Members", view_members_path(@group)  %>
-<%#shows each post made to the group starting with most recent%>
-<%#links to show page for group to view all the comments%>
-<%#includes content, author, and total likes for post%>
-<% @group.posts.reverse.each do |post| %>
-<h3> <%= link_to post.title, post_path(post) %> </h3>
-<p> <%= post.content %> </p>
-<p> Author: <%= post.user.username  %>
-<% if @group.users.find_by(id: @signed_in_user.id) %>
-<p> Comments: <%= post.comments.count %> </p>
-<% end %>
-<% end %>
-<%#if the user is a part of the group, this allows them to create posts or leave the group%>
-<% if @group.users.find_by(id: @signed_in_user.id) %> 
-<%= button_to "Create Post", new_post_path, method: :get %>
-<%= button_to "Leave Group", group_member_path(GroupMember.find_by(group_id: @group.id, user_id: @signed_in_user.id)), {method: :delete} %>
-<% else %>
-<%#if user is not a part of the group, they can join it%>
-<%= button_to "Join Group", group_members_path %>
-<% end %>
+<body>
+
+<div class="container">
+    <div class="profile-header">
+        <%#Lists Group's name and description%>
+        <p class="name-group"> <%= "Welcome to #{@group.name}!" %> </p>
+            <div class="members-btn">
+            <button class="view-members">
+                 <i class="fas fa-eye"></i>
+             <%#since Javascript isn't allowed, we opted to have a new page to list group members%>
+            <%=link_to "View our Members", view_members_path(@group)  %>
+            </button>
+            </div>
+        </div>
+
+</div>
+<div class="main-bd">
+        <div class="left-side">
+            <div class="group-profile-side">
+                <p class="description">Group Description</p>
+                <p class="group-description"><%= @group.description %> </p>
+                <div class="group-btn">
+                    <button class="create-post-btn">
+                        <i class="fa fa-plus"></i>
+                        <% if @group.users.find_by(id: @signed_in_user.id) %> 
+                        <%#if the user is a part of the group, this allows them to create posts or leave the group%>
+                        <%= link_to "Create Post", new_post_path, method: :get %>
+                    </button>
+                    <button class="leave-group">
+                        <i class="fas fa-minus-square"></i>
+                        <%= link_to "Leave Group", group_member_path(GroupMember.find_by(group_id: @group.id, user_id: @signed_in_user.id)), {method: :delete} %>
+                    </button>    
+                        <% else %>
+                        <%#if user is not a part of the group, they can join it%>
+                    <button class="join-group"> 
+                        <%= link_to "Join Group", group_members_path %>
+                    <% end %>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="right side">
+            <div class="post-right">
+                <%#shows each post made to the group starting with most recent%>
+                 <%#links to show page for group to view all the comments%>
+                 <%#includes content, author, and total likes for post%>
+                 <% @group.posts.reverse.each do |post| %>
+            <div class="group-post-title"> 
+                <p><%= link_to post.title, post_path(post) %></p>
+            </div>
+            <div class="group-post-author">
+            <p><%= link_to post.user.username, user_path(post.user.id)  %>
+        </div>
+            <div class="group-post-content">
+                <p> <%= post.content %> </p>
+            </div>
+            <div class="comment-ct">
+            <% if @group.users.find_by(id: @signed_in_user.id) %>
+                <p> Comments: <%= post.comments.count %> </p>
+            </div>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+</div>
+</body>

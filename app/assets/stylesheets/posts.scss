@@ -81,7 +81,7 @@ body {
     overflow: scroll;
 }
 
-.post-title{
+.my-post-title{
     font-family: sans-serif;
     text-transform: uppercase;
     text-align: left;
@@ -158,4 +158,8 @@ body {
 .view-replies{
     font-size: .8rem;
     text-align: right;
+}
+
+.return-btn{
+    text-align: center;
 }
