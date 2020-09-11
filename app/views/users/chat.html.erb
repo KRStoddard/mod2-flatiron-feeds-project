@@ -1,23 +1,24 @@
-<div class="center">
-    <div class="list-box">
-        <h2 class="page-head"> View Your Chats </h2>
-    </div>
-
-    <div class="group-display">
-        <% @user.chats.each do |chat| %>
+<div class="post-container">
+        <h2 class="my-post-title"> View Your Chats </h2>
+    <div class="post-box">
         <ul>
-            <li class="list-style"> 
-                <li class="description">
-                    <%= link_to chat.name, chat_path(chat), {method: :get} %>
+            <li>
+                
+                 <% @user.chats.each do |chat| %>
+                    <div class="individual-chat">
+                    <div class="chat-title">
+                     <%= link_to chat.name, chat_path(chat), {method: :get} %>
+                    </div>
                     <% chat.users.each do |user| %>
-                    <p><%= user.username %></p>
+                    <p id="chat-members"><%= link_to user.username, user_path(user) %></p>
                     <% end %>
-                </li>
+                </div>
             </li>
         </ul>
         <% end %>
     </div>
+    <div class="submit-btn">
+    <%= button_to "Start New Chat", new_chat_path, {method: :get} %><br>
 </div>
-<div class="create">
-    <%= button_to "Create New Chat", new_chat_path, {method: :get} %><br>
+
 </div>
