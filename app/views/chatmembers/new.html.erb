@@ -6,13 +6,19 @@
 <% end %>
 <h1> Add Chat Member </h1>
 <%= form_for @chatmember do |f| %>
-<%= f.label :user, class:"chatmember-label"%>
-<%= f.collection_select :user_id, @users, :id, :username%><br><br>
-<%= f.label :chat, class:"chatmember-label" %>
-<%= f.collection_select :chat_id, @chats, :id, :name %><br><br>
-<%= f.submit %>
+<div class="chatmember-label"> 
+<%= f.collection_select :user_id, @users, :id, :username, prompt: "Select User"%>
+</div>
+<div class="chatmember-label">
+<%= f.collection_select :chat_id, @chats, :id, :name, prompt: "Select Chat" %>
+</div>
+
+<div class="chatmember-create-btn">
+<%= f.submit "Add Member"%>
+</div>
 <% end %>
-<div class="Return Button">
+
+<div class="return-to-chat">
 <%= button_to "Return to Chat", chat_path(flash[:chat]), {method: :get} %>
 </div>
 </div>  
