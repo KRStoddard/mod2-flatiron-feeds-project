@@ -14,6 +14,8 @@
             <div class="profile-img">
                 <% if @user.image.attached? %>
                     <%= image_tag url_for(@user.image) %>
+                <% else%>
+                    <%= image_tag ('profile-anonymous.jpg') %>
                 <% end %>
             </div>
             <div class="main-name">
