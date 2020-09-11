@@ -33,7 +33,7 @@
                         <% else %>
                         <%#if user is not a part of the group, they can join it%>
                     <button class="join-group"> 
-                        <%= link_to "Join Group", group_members_path %>
+                        <%= link_to "Join Group", group_members_path, {method: :post} %>
                     <% end %>
                     </button>
                 </div>
