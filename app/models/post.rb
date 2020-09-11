@@ -3,4 +3,5 @@ class Post < ApplicationRecord
     has_one :group
     has_many :comments
 
+        validates :title, presence: true
 end
