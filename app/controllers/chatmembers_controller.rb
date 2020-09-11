@@ -21,6 +21,7 @@ class ChatmembersController < ApplicationController
     def destroy
         @chatmember = Chatmember.find(params[:id])
         @chatmember.destroy
+        redirect_to chat_path(flash[:chat])
     end
 
     private
