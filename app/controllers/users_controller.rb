@@ -37,6 +37,7 @@ class UsersController < ApplicationController
         @user.comments.each {|comment| comment.update(user_id: User.find_by(username: "deleted_user").id)}
         @user.replies.each {|reply| reply.update(user_id: User.find_by(username: "deleted_user").id)}
         @user.messages.each {|message| message.update(user_id: User.find_by(username: "deleted_user").id)}
+        Notification.all.select {|notification| notification.actor == @user}.each {|notification| notification.update(actor: User.find_by(username: "deleted_user"))}
         @user.destroy 
         redirect_to users_home_path
     end
