@@ -67,7 +67,13 @@
                  <% end %>
                 <% end %>
             </div>
+            <div class="return-to-group-btn">
+            <% if flash[:group] %>
+        <%= button_to "Return to Group", group_path(id: Group.find_by(id: @post.group_id)), method: :get %>
+        <% end %>
+            </div>
         </div>
+        
       </div>
 </div>
  

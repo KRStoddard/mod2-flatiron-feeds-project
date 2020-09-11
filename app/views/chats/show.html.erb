@@ -31,12 +31,12 @@
                     <%= link_to "Delete Message", message_path(message), {method: :delete} %>
                 </button>
             <% end %>
-        <% end %>
-            </div>
-
-        <button class="return-chats-button">
-        <%= link_to "Return to Chats", user_chat_path(@signed_in_user), {method: :get} %>
-            </button>
+             <% end %>
+             <button class="return-chats-button">
+             <%= link_to "Return to Chats", user_chat_path(@signed_in_user), {method: :get} %>
+                 </button>
+          </div>
+        </div>
     </div>
 
 
