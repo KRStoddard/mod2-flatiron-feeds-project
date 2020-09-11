@@ -6,6 +6,11 @@
     <%= f.text_area :content, placeholder: "Write Your Comment", class:"textarea1"%><br><br>
     <%= f.submit "Add Comment", class:"submit-button" %>
     <% end %>
+    <div class="return-button">
+    <% if flash[:post]%>
+    <%= button_to "Return to Post", post_path(flash[:post]), {method: :get} %>
+    <% end %>
+    </div>
 
 </div>
 </body>

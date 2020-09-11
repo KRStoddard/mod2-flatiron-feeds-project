@@ -1,5 +1,10 @@
 <body class="create-account">
 <div class="new-post-box">
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+<p class="error"> <%= error %> </p>
+<% end %>
+<% end %>
     <h1> New Post </h1>
 
     <%= form_for @post do |f| %>
