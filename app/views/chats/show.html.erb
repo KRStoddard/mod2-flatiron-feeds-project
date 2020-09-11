@@ -1,19 +1,36 @@
 <% if Chatmember.find_by(chat_id: @chat.id, user_id: @signed_in_user.id) %>
-<h2> <%= @chat.name %> </h2>
-<h3> Members of this chat(Click on name to Remove): </h3>
- <% @chat.users.each do |user| %>
- <%= link_to user.username, chatmember_path(Chatmember.find_by(chat_id: @chat.id, user_id: user.id)), {method: :delete, data: {confirm: true}} %>
-<% end %>
-<%= button_to "Add User to Chat", new_chatmember_path, {method: :get} %>
-<%= button_to "Add message", new_message_path, {method: :get} %>
-<% @chat.messages.reverse.each do |message| %>
-<p> <%= message.content %> <p>
-<p> <%= message.user.username %> </p>
-<% if message.user_id == @signed_in_user.id%>
-<%= button_to "Edit Message", edit_message_path(message), {method: :get}%>
-<%= button_to "Delete Message", message_path(message), {method: :delete} %>
-<% end %>
-<% end %>
+    <div class="post-container">
+        <h2 class="post-title"> <%= @chat.name %>
+            <h3> Members of this chat(Click on name to Remove): </h3>
+            <p id="post-author"> <% @chat.users.each do |user| %>
+                <%= link_to user.username, chatmember_path(Chatmember.find_by(chat_id: @chat.id, user_id: user.id)), {method: :delete, data: {confirm: true}} %>
+            <% end %></p></h2>
+            <button class="add-comment"> 
+                <i class="fas fa-plus"></i>
+                <%= button_to "Add User to Chat", new_chatmember_path, {method: :get} %>
+            </button>
+            <button class="add-comment">
+                <i class="fas fa-plus"></i>
+                <%= button_to "Add message", new_message_path, {method: :get} %>
+            </button>
+        <% @chat.messages.reverse.each do |message| %>
+            <p class="post-content"> <%= message.content %> <p>
+            <p> <%= message.user.username %> </p>
+            <% if message.user_id == @signed_in_user.id%>
+                <div class="comment-buttons">
+                <button>
+                    <i class="fas fa-edit"></i>
+                    <%= button_to "Edit Message", edit_message_path(message), {method: :get}%>
+                </button>
+                <button>
+                    <i class="far fa-trash-alt"></i>
+                    <%= button_to "Delete Message", message_path(message), {method: :delete} %>
+                </button>
+            <% end %>
+        <% end %>
+    </div>
+<%= button_to "Return to Chats", user_chat_path(@signed_in_user), {method: :get} %>
 <% else %>
-<p>You must be invited to this chat to view it.</p>
+    <p>You must be invited to this chat to view it.</p>
 <% end %>
+
