@@ -1,6 +1,7 @@
 <body>
 
 <div class="post-container">
+<%= button_to "Return to Post", post_path(@comment.post), method: :get %>
     <div class="post-box">
         <h2 class="post-title"> Comment Thread 
         <p id="post-author"><%= link_to @comment.user.username, user_path(@comment.user.id)%>
@@ -37,5 +38,4 @@
         </div>
     </div>
 </div>
-
 </body>
