@@ -3,20 +3,6 @@
     background: black;
 }
 
-.login-main{
-    font-family: sans-serif;
-    background: linear-gradient(120deg, lightblue, #2980b9);
-    height: 100vh;
-    overflow: hidden;
-}
-
-.create-account{
-    font-family: sans-serif;
-    background: linear-gradient(120deg, lightblue, #2980b9);
-    height: 100vh;
-    overflow: hidden;
-}
-
 .main
 {
     position: absolute;
@@ -69,12 +55,6 @@
 .btn-two
 {
     font-family: "Roboto", sans-serif;
-}
-
-.btn-two:hover
-{
-    background-color: lightblue;
-    transition: all 0.5s ease-in;
 }
 
 .login-box
@@ -133,14 +113,14 @@
 
 .create-account-box{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     max-width: 380px;
     border-radius: 5px;
     transform: translate(-50%, -50%);
     background: rgba(0,0,0,0.8);
     box-sizing: border-box;
-    padding: 30px;
+    padding: 20px;
     padding-bottom: 20px;
 }
 
@@ -148,10 +128,10 @@
     text-align: center;
     color: white;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
     border-bottom: 3px groove #68cdf5;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .textfield1{

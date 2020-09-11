@@ -1,10 +1,10 @@
 <body>
 
-<section class="post-container">
+<div class="post-container">
   <div class="post_box">
     <p class="post-creation-date"><%= @post.created_at.strftime("%B %d, %Y") %><p>
-    <h2 class="post-title"><%= @post.title %></h2>
-    <p>Author:<%= link_to User.find_by(id: @post.user_id).username, user_path(@post.user_id) %>
+    <h2 class="post-title"><%= @post.title %><p id="post-author"><%= link_to User.find_by(id: @post.user_id).username, user_path(@post.user_id) %></p>
+    </h2>
       <div class="post-buttons">
         <% if @post.user_id == @signed_in_user.id %>
            <button>
@@ -37,11 +37,18 @@
         <div class="ind-comment">
            <% @comment = comment %>
             <%= comment.content %>
-            <p> Replies: <%= link_to comment.replies.count, comment_path(comment), {method: :get} %>
+        </div>
+        <div class="view-replies">
+        <% flash[:comment] = comment.id %>
+        <%= link_to "Replies: #{comment.replies.count}", comment_path(comment), {method: :get} %>
         </div>
          
          <div class="button-position"> 
-             <button id="like-button">
+            <button id="reply-button">
+            <i class="fas fa-reply"></i>
+            <%= link_to "Reply", new_reply_path, {method: :get} %>
+            </button> 
+            <button id="like-button">
              <i class="fas fa-heart"></i>
               <%= link_to "Like #{@comment.likes}", like_comment_path(@comment), method: :patch %></button>
               </button>
@@ -52,17 +59,17 @@
                <button>
                <i class="far fa-trash-alt"></i>
                 <%= link_to "Edit", edit_comment_path(@comment), {method: :get} %>
-               <% end %>
                </button> 
                <button> 
                 <i class="fas fa-edit"></i>
                   <%= link_to "Delete", comment_path(@comment), {method: :delete} %>
                  </button>
+                 <% end %>
                 <% end %>
             </div>
         </div>
       </div>
-</section>
+</div>
  
-
+</body>
 

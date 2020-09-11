@@ -4,20 +4,24 @@
 <body>
 <%#shows welcome message when user signs in%>
 <% if flash[:success] %>
-<div class="flash-message"><%= flash[:success] %></div>
+<h3 class="flash-message"><%= flash[:success] %></h3
 <% end %>
 <%#shows profile if the user isn't deleted%>
 <% if @user != User.find_by(username: "deleted_user")%>
 <div class="container">
     <div class="profile-header">
         <div class="profile-nav-info">
+            <div class="profile-img">
+                <% if @user.image.attached? %>
+                    <%= image_tag url_for(@user.image) %>
+                <% end %>
+            </div>
+            <div class="main-name">
             <h3 class="name-profile"> <%= @user.full_name %>'s Profile
             </h3>
-            <% if @user.image.attached? %>
-            <p> <%= image_tag url_for(@user.image), size: '150x150' %></p> 
-            <% end %>
             <p class="user-name"> <%= @user.username %>
             </p>
+            </div>
         </div>
         <div class="profile-option">
         <% if @user.id == @signed_in_user.id %>
@@ -82,14 +86,18 @@
          
                     <div class="content">
                     <%#shows profile posts based on most recently posted%>
-                            <% @user.profile_posts.reverse.each do |post| %>
-       
-                             <p> <%= link_to "Comments: #{post.comments.count}", post_path(post) %> </p>
-                           
-
-                            <h3 class="profile-post-title"> <%= link_to post.title, post_path(post) %> </h3>
-                            <p> <%= post.content[0...25] %>... </p>
-                             <% end %>
+                        <div>
+                            <ul>
+                                <% @user.profile_posts.reverse.each do |post| %>
+                                <li class="user-posts"><h3 class="profile-post-title"> <%= link_to post.title, post_path(post) %> </h3>
+                                    <% if post.content %>
+                                    <p> <%= post.content[0...25] %>... </p>
+                                    <% end %>
+                                    <p class="profile-page-comments"> <%= link_to "Comments: #{post.comments.count}", post_path(post) %> </p>
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </div>
                      </div> 
                  </div>
             </div>
